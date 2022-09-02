@@ -1,11 +1,18 @@
+# frozen_string_literal: true
+
 # (с) goodprogrammer.ru
 #
 # Контроллер, управляющий пользователями
 class UsersController < ApplicationController
-  # Задаем объект @user для тех действий, где он нужен
-  before_action :set_user, only: %i[show edit update]
+  # Встроенный в девайз фильтр — посылает незалогиненного пользователя
+  before_action :authenticate_user!, except: [:show]
 
-  def show; end
+  # Задаем объект @user (текущий юзер) для шаблонов и экшенов
+  before_action :set_current_user, except: [:show]
+
+  def show
+    @user = User.find(params[:id])
+  end
 
   def edit; end
 
@@ -19,8 +26,8 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
+  def set_current_user
+    @user = current_user
   end
 
   def user_params

@@ -1,4 +1,10 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   # Юзер может создавать много событий
   has_many :events, dependent: :destroy
 
@@ -8,4 +14,16 @@ class User < ApplicationRecord
   #  без обращения к DNS-почтовым серверам для проверки существования доменного
   # проверяем корректность вводимых емэйлов
   validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
+
+  # При создании нового юзера (create), перед валидацией объекта выполнить
+  # метод set_name (devise ни знает ничего о поле "name" потому что, которое
+  # у нас presence: true)
+  before_validation :set_name, on: :create
+
+  private
+
+  # Задаем юзеру случайное имя, если оно пустое
+  def set_name
+    self.name = "nemo №#{rand(777)}" if name.blank?
+  end
 end

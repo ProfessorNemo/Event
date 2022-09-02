@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/professor/Документы/rubytut/lesson52-54/bbq'
+rails db:drop	db:create	db:migrate	db:fixtures:load
+make: Leaving directory '/home/professor/Документы/rubytut/lesson52-54/bbq'
+ 
