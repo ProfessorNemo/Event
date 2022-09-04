@@ -1,20 +1,20 @@
-
 <%# html: {multipart: true} - для случая загрузок аватарок %>
 <%= form_for @user, html: {multipart: true} do |f| %>
   <%= render partial: 'partials/form_errors', locals: {model: @user} %>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
+  <div class="form-group mb-2">
+    <%= f.label :name, class: 'form-label fw-bold' %>
+    <%= f.text_field :name, class: 'form-control shadow-sm' %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'form-control' %>
+  <div class="form-group mb-2">
+    <%= f.label :email, class: 'form-label fw-bold' %>
+    <%= f.text_field :email, class: 'form-control shadow-sm' %>
   </div>
 
   <div class="actions">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
+    <%= link_to t('buttons.back'), :back, class: 'link-secondary active'%>
+    <%= t('text.or')%>
+    <%= f.submit t('buttons.save'), class: 'btn btn-primary rounded-pill' %>
   </div>
 <% end %>

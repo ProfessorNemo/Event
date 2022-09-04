@@ -18,9 +18,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: t('controllers.users.updated')
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 

@@ -1,0 +1,196 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        avatar: 'Аватар'
+        email: 'Email:'
+        name: 'Имя:'
+        new_password: 'Новый пароль:'
+        new_password_confirmation: 'Подтвердите новый пароль:'
+        password: 'Пароль:'
+        password_confirmation: 'Подтверждение пароля:'
+      comment:
+        body: 'Комментарий:'
+        user_name: 'Имя пользователя:'
+      subscription:
+        user_name: 'Имя пользователя:'
+        user_email: 'Email:'
+      photo:
+        photo: 'Фотография'
+      event:
+        address: 'Место проведения:'
+        datetime: 'Дата и время:'
+        description: 'Описание:'
+        title: 'Название:'
+        pincode: Пин-код
+    models:
+      event: Событие
+      user: Пользователь
+      photo: 'Фотография'
+    errors:
+      models:
+        subscription:
+          attributes:
+            user_email:
+              already_exists: уже зарегистрирован
+            user_id:
+              subscription_error: Нельзя подписаться на своё событие
+
+  app:
+    company: Хороший программист
+    creator: 'Автор проекта:'
+    name: Шашлыки
+
+  account:
+    destroy_confirm: Вы уверены?
+
+  buttons:
+    account_delete: Удалить аккаунт
+    back: вернуться
+    change: Изменить
+    event_create: Создать событие
+    event_delete: Удалить событие
+    forgot_password: Забыли пароль?
+    log_out: Выйти
+    password_edit: Сменить пароль
+    profile: Профиль
+    reset_password: Восстановить пароль
+    save: Сохранить
+    sign_in: Войти
+    sign_up: Зарегистрироваться
+    update: Обновить
+    send: Отправить
+
+  controllers:
+    events:
+      created: Вы создали новое мероприятие
+      destroyed: Вы удалили мероприятие :(
+      updated: Вы обновили мероприятие
+      wrong_pincode: Неверный пинкод!
+    users:
+      updated: Вы обновили свой профиль
+    comments:
+      destroyed: Комментарий удален
+      created: Ваш комментарий добавлен
+      error: Ошибка с комментарием
+    subscriptions:
+      created: Вы подписаны на это событие
+      destroyed: Участник отписан
+      error: Подписка/отписка не сработала
+    photos:
+      error: 'Что-то не так с фоткой'
+      created: 'Вы добавили фотографию к событию'
+      destroyed: 'Вы удалили фотку'
+
+  devise:
+    omniauth_callbacks:
+        authentication_error: ошибка аутентификации
+        email_missing: отсутствует email
+        failure: Вы не можете войти в систему с учетной записью из %{kind}, т.к. "%{reason}".
+        success: Вход в систему выполнен с учетной записью из %{kind}.
+
+  declinations:
+    errors:
+      one: "%{count} ошибка:"
+      few: "%{count} ошибки:"
+      many: "%{count} ошибок:"
+    form: В вашей форме -
+
+  comments:
+    comment:
+      are_you_sure: Вы уверены, что хотите удалить этот комменатрий?
+
+  en: Английский
+
+  events:
+    form:
+      email_notifications: e-mail уведомления
+    show:
+      are_you_sure: Вы уверены, что хотите удалить это мероприятие?
+      add_photo: Добавить фото
+      comments: 'Комментарии (%{count}):'
+      close: Закрыть
+      load_photo: 'Загрузить фото:'
+      members_be_here: Тут будут участники.
+      no_comments_yet: Комментариев пока нет.
+      no_photo_yet: Фотографий пока нет.
+      only_authorized_users: Добавлять фото могут только зарегистрированные пользователи.
+      show_on_map: Показать на карте
+
+  event_mailer:
+    comment:
+      title: Новый комментарий
+      author: Автор
+      event: Событие
+      datetime: Дата
+      owner: Организатор
+      subject: 'Новый комментарий @ %{event}'
+    subscription:
+      title: Новая подписка
+      name: Имя
+      email: Email
+      author: Автор
+      event: Событие
+      datetime: Дата
+      owner: Организатор
+      subject: 'Новая подписка на %{event}'
+    photo:
+      title: Новая фотография
+      author: Автор
+      event: Событие
+      datetime: Дата
+      owner: Организатор
+      subject: 'Новая фотография %{event}'
+      photo: Photo
+
+  photos:
+    photo:
+      are_you_sure: Вы уверены, что хотите удалить эту фотографию?
+      add: 'Добавил:'
+      choose_file: Выберите файл
+
+  pundit:
+    no_access: Нет доступа
+
+  ru: Русский
+
+  subscriptions:
+    form:
+      subscribe: Подписаться
+    subscription:
+      are_you_sure: Вы уверены, что хотите отменить подписку?
+
+  text:
+    enter_email: Введите e-mail
+    enter_name: Введите имя
+    enter_password: Введите пароль
+    load_avatar: Загрузить аватар
+    leave_empty: (оставьте пустым, если не хотите менять)
+    linked_accounts: 'Связанные аккаунты:'
+    message: 'Сообщение:'
+    no_events: Пользователь пока не организовал ни одного события
+    or: или
+    password_length: 'Не менее %{length} символов'
+    pincode: Пин-код
+    privacy_policy: Политика конфиденциальности
+    to_main: На главную
+    waiting_confirmation: 'В настоящее время ожидает подтверждения для: %{email}'
+
+  titles:
+    account_delete: Удаление аккаунта
+    account_edit: Редактирование профиля
+    change_password: Смена пароля
+    events_all: 'Все события:'
+    event_create: Создание события
+    event_edit: Редактирование события
+    events_sample: Случайные события
+    event_photos: 'Фото события (%{count}):'
+    event_creator: 'Организатор:'
+    event_subscribers: 'Пойдут (%{count}):'
+    forgot_password: Забыли пароль?
+    join: 'Я пойду:'
+    organized: Организовал
+    password_edit: Изменение пароля
+    pincode_access: Доступ только по пин-коду
+    sign_up: 'Регистрация:'
+    sign_in: 'Войти:'

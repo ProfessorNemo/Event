@@ -1,10 +1,11 @@
-<h1>События</h1>
+<%= content_tag(:h2, t('titles.events_all'), class: 'fw-light fs-1 text-dark text-center my-4 border-top pt-2') %>
 
 <div class="buffer-both">
-  <%= link_to 'Создать событие', new_event_path, class: 'btn btn-success' %>
+  <%= link_to t('titles.events_create'), new_event_path, class: 'btn btn-success' %>
 </div>
 
 <div class="row buffer-bottom">
   <%# Рендерим сразу массив событий, каждый в паршиале 'events/event' %>
   <%= render partial: 'events/event', collection: @events %>
 </div>
+

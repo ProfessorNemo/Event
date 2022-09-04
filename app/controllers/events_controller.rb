@@ -26,26 +26,26 @@ class EventsController < ApplicationController
   def edit; end
 
   def create
-    @event = Event.new event_params
+    @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to @event, notice: t('controllers.events.created')
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
     if @event.update event_params
-      redirect_to @event, notice: 'Event was successfully updated.'
+      redirect_to @event, notice: t('controllers.events.updated')
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
     @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
+    redirect_to events_path, notice: t('controllers.events.destroyed')
   end
 
   private

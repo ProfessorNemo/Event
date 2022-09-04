@@ -1,6 +1,2 @@
-<h1>Editing Event</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<%= content_tag(:h1, t('titles.event_edit'), class: 'text-center fw-light') %>
+<%= render 'form', event: @event %>

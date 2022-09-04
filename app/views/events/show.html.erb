@@ -1,27 +1,39 @@
 <div class="event">
   <div class="event-info row">
-    <div class="col-md-12">
+    <div class="col-md-12 event-info-inner rounded">
       <%= content_tag 'div', '', class: 'event-background',
         style: "background-image: url(#{asset_path('event.jpg')})" %>
 
-      <div class="event-info-inner row">
-        <div class="col-md-6">
+      <div class="row event-banner">
+        <div class="col-md-8 px-4 py-3">
           <div class="event-description">
-            <h1><%= @event.title %></h1>
-            <h3><%= @event.datetime %></h3>
-            <h3><small><%= link_to @event.address,
-                "https://yandex.ru/maps/?text=#{@event.address}" %></small></h3>
-            <p><%= @event.description %></p>
+            <%= content_tag(:h1, @event.title, class: 'text-center fw-light') %>
+            <%= content_tag(:h3, l(@event.datetime, format: :short), class: 'fw-lighter') %>
+            <%= content_tag(:h3, link_to(@event.address, "https://yandex.ru/maps/?text=#{@event.address}"),
+                 class: 'fw-light text-info') %>
+            <h3>
+              <%= button_tag t('.show_on_map'), data: {'bs-toggle' => 'modal', 'bs-target' => '#staticBackdrop'},
+                 class: 'btn btn-warning active btn-sm fs-5'%>
+            </h3>
+            <%= content_tag(:p, @event.description, class: 'text-break') %>
           </div>
 
-          <% if current_user_can_edit?(@event) %>
-            <div class="buffer-top">
-              <%= link_to 'Изменить', edit_event_path(@event),
-                class: 'btn btn-primary' %>
-            </div>
-          <% end %>
+          <div class="form-group mb-2">
+            <% if current_user_can_edit?(@event) %>
+              <div class="buffer-top">
+                <%= link_to t('buttons.change'), edit_event_path(@event),
+                  class: 'btn btn-secondary mb-1 rounded-pill' %>
+                <%= link_to t('buttons.event_delete'), event_path(@event), class: 'btn btn-danger mb-1 rounded-pill',
+                  method: :delete, data: { confirm: t('.are_you_sure') } %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+

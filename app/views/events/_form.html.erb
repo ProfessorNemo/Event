@@ -1,29 +1,33 @@
-<%# Паршиал дляотображения формы создания нового события %>
-<%= form_for(@event) do |f| %>
-  <%= render partial: 'partials/form_errors', locals: {model: @event} %>
+    <%= form_for(@event) do |f| %>
+      <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: 'form-control' %>
-  </div>
+  <div class="form-group mb-2">
+        <%= f.label :title, class: 'fs-5' %>
+        <%= f.text_field :title, class: 'form-control shadow-sm' %>
+      </div>
 
-  <div class="form-group">
-    <%= f.label :datetime %>
-    <p><%= f.datetime_select :datetime, class: 'form-control' %></p>
-  </div>
 
-  <div class="form-group">
-    <%= f.label :description %>
-    <%= f.text_area :description, class: 'form-control' %>
-  </div>
+  <div class="form-group mb-2">
+        <%= f.label :address, class: 'fs-5' %>
+        <%= f.text_field :address, class: 'form-control shadow-sm' %>
+      </div>
 
-  <div class="actions">
-    <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
-    или <%= link_to 'вернуться', :back %>
-  </div>
-<% end %>
+
+  <div class="form-group mb-2">
+        <%= f.label :datetime, class: 'fs-5' %>
+        <p><%= f.datetime_select :datetime, class: 'form-select shadow-sm' %></p>
+      </div>
+
+
+  <div class="form-group mb-2">
+        <%= f.label :description, class: 'fs-5' %>
+        <%= f.text_area :description, class: 'form-control shadow-sm' %>
+      </div>
+
+      <div class="actions">
+        <%= link_to t('buttons.back'), user_path(current_user), class: 'link-secondary' %>
+        <%= t('text.or')%>
+        <%= f.submit t('buttons.save'), class: 'btn btn-primary rounded-pill shadow-sm' %>
+      </div>
+    <% end %>

@@ -1,13 +1,12 @@
-<h1>Редактирование профиля</h1>
+<%= content_tag(:h1, t('titles.account_edit'), class: 'text-left fw-light') %>
 
 <div class="row">
   <div class="col-md-6 buffer-top">
     <%= render 'form' %>
 
-    <p class="buffer-top">
       <%# Ссылка на смену пароля текущего залогиненного юзера (этот путь %>
       <%# генерит девайз) %>
-      <%= link_to 'Сменить пароль', edit_user_registration_path %>
-    </p>
+      <%= content_tag(:p, link_to(t('buttons.password_edit'),
+      edit_user_registration_path), class: 'buffer-top') %>
   </div>
 </div>
