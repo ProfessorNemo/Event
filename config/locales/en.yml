@@ -29,6 +29,10 @@ en:
       photo: Photo
     errors:
       models:
+        user:
+          attributes:
+            password:
+              password_error: complexity requirement not met. Length should be 8-70 characters and include - 1 uppercase, 1 lowercase, 1 digit and 1 special character.
         subscription:
           attributes:
             user_email:
@@ -181,7 +185,7 @@ en:
     account_edit: Profile editing
     change_password: Password change
     events_all: 'All events:'
-    event_create: Create an event
+    event_create: Create event
     event_edit: Editing an event
     events_sample: Кandom events
     event_photos: 'Photos of the event (%{count}):'

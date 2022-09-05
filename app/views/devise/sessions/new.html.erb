@@ -1,19 +1,21 @@
+
 <%= content_tag(
       :div, content_tag(:h3, t('titles.sign_in'),
-      class: 'card-header col-md-4 border bg-light'),
-      class: 'row justify-content-md-center rounded-top mt-5'
+      class: "col-md-6"),
+      class: 'row justify-content-md-center rounded-bottom mt-5'
     ) %>
 
 <div class="row justify-content-md-center">
   <div class="col-md-4 border rounded-bottom shadow mb-3 pt-2">
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
       <div class="field form-group mb-2">
-        <%= f.label :email, class: 'form-label' %><br />
+        <%= f.label :email, class: 'form-label fw-bolder' %><br />
         <%= f.email_field :email, placeholder: t('text.enter_email'), autofocus: true, class: 'form-control shadow-sm' %>
       </div>
 
       <div class="field form-group mb-2">
-        <%= f.label :password, class: 'form-label' %><br />
+        <%= f.label :password, class: 'form-label fw-bolder' %><br />
         <%= f.password_field :password, placeholder: t('text.enter_password'), autocomplete: "current-password", class: 'form-control shadow-sm' %>
       </div>
 

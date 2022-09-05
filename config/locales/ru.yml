@@ -29,6 +29,10 @@ ru:
       photo: 'Фотография'
     errors:
       models:
+        user:
+          attributes:
+            password:
+              password_error: недостаточно сложный. Длина должна быть от 8 до 70 символов и включать 1 прописную, 1 строчную, 1 цифру и 1 специальный символ.
         subscription:
           attributes:
             user_email:
@@ -181,7 +185,7 @@ ru:
     account_edit: Редактирование профиля
     change_password: Смена пароля
     events_all: 'Все события:'
-    event_create: Создание события
+    event_create: Создать событие
     event_edit: Редактирование события
     events_sample: Случайные события
     event_photos: 'Фото события (%{count}):'

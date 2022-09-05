@@ -20,10 +20,20 @@ class User < ApplicationRecord
   # у нас presence: true)
   before_validation :set_name, on: :create
 
+  validate :password_complexity
+
   private
 
   # Задаем юзеру случайное имя, если оно пустое
   def set_name
     self.name = "nemo №#{rand(777)}" if name.blank?
+  end
+
+  # проверка для сложности пароля
+  def password_complexity
+    # Regexp extracted from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+    return if password.blank? || password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
+
+    errors.add(:password, :password_error)
   end
 end
