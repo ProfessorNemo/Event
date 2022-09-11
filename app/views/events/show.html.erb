@@ -28,12 +28,50 @@
               </div>
             <% end %>
           </div>
+
+          <div class="row justify-content-md-center">
+            <div class="col-md-11 my-4">
+              <% if @event.comments.exists? %>
+                <%= content_tag(:h3, t('.comments', count: @event.comments.count), class: 'fw-light') %>
+                <div class="buffer-both">
+                  <%= render partial: 'comments/comment',
+              collection: @event.comments.except(@new_comment).order(created_at: :asc) %>
+                </div>
+              <% else %>
+                <%= content_tag(:em, content_tag(:h6, t('.no_comments_yet'), class: 'text-center my-5 text-secondary')) %>
+              <% end %>
+              <%# @new_comment создан будет в контроллере events в экшене show, а если  @new_comment=nil
+              то будет сформирована пустая заготовка %>
+              <%= render partial: 'comments/form',
+            locals: {comment: @new_comment || @event.comments.build} %>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <% if @event.subscriptions.exists? %>
+              <div class="event-subscriptions mt-3">
+                <%= content_tag(:h3, t('titles.event_subscribers', count: @event.subscriptions.count), class: 'mb-3') %>
+                <div>
+                  <div class="row row-cols-auto">
+                    <%= render partial: 'subscriptions/subscription',
+                collection: @event.subscriptions.except(@new_subscription).shuffle %>
+                  </div>
+                </div>
+              </div>
+            <% else %>
+              <%= content_tag(:em, content_tag(:p, t('.members_be_here'), class: 'text-center text-secondary my-3')) %>
+            <% end %>
+            <% unless @event.user == current_user || @event.subscribers.include?(current_user) %>
+            <div class="buffer-both">
+              <%= render partial: 'subscriptions/form', locals: {
+            subscription: @new_subscription || @event.subscriptions.build
+          } %>
+            </div>
+          <% end %>
         </div>
+
       </div>
+
     </div>
   </div>
-</div>
-
-
-
-
+</div></div></div>

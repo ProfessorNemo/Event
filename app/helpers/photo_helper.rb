@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PhotoHelper
   def user_avatar(user)
     user&.avatar&.url || asset_path('user.png')

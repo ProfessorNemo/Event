@@ -6,10 +6,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   # Юзер может создавать много событий
-  has_many :events, dependent: :destroy
 
   # У юзера должно быть имя не длиннее 35 букв
   validates :name, presence: true, length: { maximum: 35 }
+
+  # Юзер может создавать много событий и комментариев
+  has_many :events, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   #  без обращения к DNS-почтовым серверам для проверки существования доменного
   # проверяем корректность вводимых емэйлов
@@ -21,6 +24,8 @@ class User < ApplicationRecord
   before_validation :set_name, on: :create
 
   validate :password_complexity
+
+  after_commit :link_subscriptions, on: :create
 
   private
 
@@ -35,5 +40,10 @@ class User < ApplicationRecord
     return if password.blank? || password =~ /(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-])/
 
     errors.add(:password, :password_error)
+  end
+
+  def link_subscriptions
+    Subscription.where(user_id: nil, user_email: email)
+                .update_all(user_id: id)
   end
 end

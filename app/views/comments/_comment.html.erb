@@ -1,0 +1,25 @@
+<div class="buffer-bottom">
+  <h5 class="card-header bg-light">
+    <%= content_tag(:i, '', class: 'fa fa-commenting') %>
+    <% if comment.user.present? %>
+      <a href="<%= user_path(comment.user) %>" class="p-1 link-dark">
+        <%= content_tag(:strong, comment.user_name) %>
+        <%= content_tag(:i, '', class: 'fa fa-check-circle comment-icon') %>
+      </a>
+    <% else %>
+      <%= content_tag(:em, content_tag(:strong, comment.user_name, class: 'link-secondary')) %>
+    <% end %>
+		<%# Если текущий юзер может редактировать коммент, выводим иконку для удаления %>
+    <% if current_user_can_edit?(comment) %>
+      <%= link_to(
+            fa_icon(class: 'trash-o float-end', color: 'Tomato'), event_comment_path(comment.event, comment),
+            method: :delete, data: { confirm: t('.are_you_sure') }
+          ) %>
+    <% end %>
+  </h5>
+  <div class="card-body">
+    <%= content_tag(:h6, comment.body, class: 'card-text') %>
+    <%= content_tag(:i, '', class: 'fa fa-clock-o') %>
+    <%= content_tag(:em, l(comment.created_at, format: :short), class: 'fw-lighter') %>
+  </div>
+</div>

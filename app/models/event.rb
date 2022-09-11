@@ -4,6 +4,13 @@ class Event < ApplicationRecord
   # Событие принадлежит юзеру
   belongs_to :user
 
+  has_many :comments, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
+  # Для того, чтобы  рельсы понимали, какой класс лежит в связи
+  # ':subscribers' - source: :user - это то поле в таблице subscriptions
+  # на которое эта связь будет ссылаться
+  has_many :subscribers, through: :subscriptions, source: :user
+
   # Заголовок должен быть, и не может быть длиннее 255 букв
   validates :title, presence: true, length: { maximum: 255 }
 
