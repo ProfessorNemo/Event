@@ -157,7 +157,7 @@ en:
     change_password: Change Password
     new_event: New event
     password_recovery: Password recovery
-    passed: Passed
+    ended: Passed
     expected: Expected
 
   photos:

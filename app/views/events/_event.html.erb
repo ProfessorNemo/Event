@@ -8,10 +8,10 @@
       <div class="caption m-2">
         <div class="event-description">
           <%= content_tag(:h3, link_to(event.title, event_path(event)), class: 'fw-light') %>
-          <%= content_tag(:h5, l(event.datetime, format: :short), class: 'fw-lighter') %>
+          <%= content_tag(:h5, l(event.datetime, format: :long), class: 'fw-lighter') %>
           <%= content_tag(:div, event.address, class: 'buffer-both text-break') %>
           <% if event.datetime < Time.now %>
-               <%= content_tag(:div, t('other.passed'), class: 'buffer-both text-break') %>
+               <%= content_tag(:div, t('other.ended'), class: 'buffer-both text-break') %>
           <% else %>
                <%= content_tag(:div, t('other.expected'), class: 'buffer-both text-break') %>
           <% end %>
