@@ -147,6 +147,17 @@ ru:
       subject: 'Новая фотография %{event}'
       photo: Photo
 
+  other:
+    title_name: Шашлыки
+    sign_in: Вход
+    sign_up: Регистрация
+    event: '%{event}'
+    profile: '%{name}'
+    profile_editing: Редактирование профиля
+    change_password: Изменение пароля
+    new_event: Новое событие
+    password_recovery: Восстановление пароля
+
   photos:
     photo:
       are_you_sure: Вы уверены, что хотите удалить эту фотографию?
@@ -193,8 +204,10 @@ ru:
     event_subscribers: 'Пойдут (%{count}):'
     forgot_password: Забыли пароль?
     join: 'Я пойду:'
+    omission: "... (далее)"
     organized: Организовал
     password_edit: Изменение пароля
     pincode_access: Доступ только по пин-коду
     sign_up: 'Регистрация:'
     sign_in: 'Войти:'
+

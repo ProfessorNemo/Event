@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 #
 # Контроллер вложенного ресурса подписок
 class SubscriptionsController < ApplicationController

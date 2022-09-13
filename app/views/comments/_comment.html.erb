@@ -1,8 +1,9 @@
+<%= tag.article class: 'mb-3', id: dom_id(comment) do %>
 <div class="buffer-bottom">
-  <h5 class="card-header bg-light">
+  <h5 class="card-header bg">
     <%= content_tag(:i, '', class: 'fa fa-commenting') %>
     <% if comment.user.present? %>
-      <a href="<%= user_path(comment.user) %>" class="p-1 link-dark">
+      <a href="<%= user_path(comment.user) %>" class="p-1 link-white">
         <%= content_tag(:strong, comment.user_name) %>
         <%= content_tag(:i, '', class: 'fa fa-check-circle comment-icon') %>
       </a>
@@ -12,14 +13,26 @@
 		<%# Если текущий юзер может редактировать коммент, выводим иконку для удаления %>
     <% if current_user_can_edit?(comment) %>
       <%= link_to(
-            fa_icon(class: 'trash-o float-end', color: 'Tomato'), event_comment_path(comment.event, comment),
+            fa_icon(class: 'trash-o', color: 'Tomato'), event_comment_path(comment.event, comment),
             method: :delete, data: { confirm: t('.are_you_sure') }
           ) %>
     <% end %>
   </h5>
   <div class="card-body">
-    <%= content_tag(:h6, comment.body, class: 'card-text') %>
+     <%# Если подряд идущих символов без пробела больше 40: %>
+      <% if comment.body.split.map { |str| str.chars.count }.max > 40 %>
+        <p class="my-2">
+          <%= truncate strip_tags(comment.body), length: 40, omission: t('titles.omission') %>
+        </p>
+      <% else %>
+        <%= content_tag(:h6, comment.body, class: 'card-text') %>
+      <% end %>
     <%= content_tag(:i, '', class: 'fa fa-clock-o') %>
     <%= content_tag(:em, l(comment.created_at, format: :short), class: 'fw-lighter') %>
   </div>
 </div>
+<% end %>
+
+
+
+

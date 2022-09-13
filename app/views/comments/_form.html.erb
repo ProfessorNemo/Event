@@ -1,4 +1,4 @@
-<%= form_for [@event, comment] do |f| %>
+<%= form_with model: [@event, comment], class: 'pt-3 border-top my-2' do |f| %>
     <%= render partial: 'partials/form_errors', locals: { model: comment } %>
     <% unless user_signed_in? %>
       <div class="form-group mb-2">

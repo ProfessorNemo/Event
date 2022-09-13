@@ -30,6 +30,9 @@ PerceivedComplexity:
 Rails/I18nLocaleTexts:
   Enabled: false
 
+SkipsModelValidations:
+  Enabled: false
+
 # Rails/FilePath:
 #   EnforcedStyle: arguments
 

@@ -1,12 +1,12 @@
 <% unless user_signed_in? %>
   <%= content_tag(
         :div, content_tag(:h4, t('titles.join'),
-        class: 'form-group mb-2 col-md-12 border bg-light'),
-        class: 'row justify-content-md-center rounded-top mt-4'
+      class: "col-md-6"),
+      class: 'form-group mb-2'
       ) %>
 <% end %>
 
-<div class="row justify-content-md-center">
+<div class="form-group mb-2">
   <div class="col-md-12 rounded-bottom mb-3 pt-2 <%= 'border shadow' unless user_signed_in? %>">
     <%= form_for [@event, subscription] do |f| %>
       <%= render partial: 'partials/form_errors', locals: {model: subscription} %>

@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  #  без обращения к DNS-почтовым серверам для проверки существования доменного
+  # без обращения к DNS-почтовым серверам для проверки существования доменного
   # проверяем корректность вводимых емэйлов
   validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
 
@@ -25,6 +25,7 @@ class User < ApplicationRecord
 
   validate :password_complexity
 
+  # Если юзер уже подписывался, но хочет залогиниться, пройдя все валидации
   after_commit :link_subscriptions, on: :create
 
   private

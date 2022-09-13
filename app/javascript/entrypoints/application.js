@@ -11,6 +11,9 @@ import "channels"
 import '@popperjs/core'
 import 'bootstrap/js/dist/dropdown'
 import './custom.js'
+// для отображения выпадающей формы
+import 'bootstrap/js/dist/collapse'
+
 
 Rails.start()
 Turbolinks.start()

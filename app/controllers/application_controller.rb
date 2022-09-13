@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   include Internationalization
   include ErrorHandling
+  include ActionView::RecordIdentifier
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -34,6 +35,8 @@ class ApplicationController < ActionController::Base
       (model.try(:event).present? && model.event.user == current_user)
     )
   end
+
+  helper_method :current_user_can_edit?
 end
 
 # model.try(:event) - вызвать у объекта model метод, который передали в качестве символа.

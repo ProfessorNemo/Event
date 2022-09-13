@@ -1,3 +1,5 @@
+<% provide :page_title, t('other.event', event: @event.title) %>
+
 <div class="event">
   <div class="event-info row">
     <div class="col-md-12 event-info-inner rounded">
@@ -33,26 +35,20 @@
             <div class="col-md-11 my-4">
               <% if @event.comments.exists? %>
                 <%= content_tag(:h3, t('.comments', count: @event.comments.count), class: 'fw-light') %>
-                <div class="buffer-both">
-                  <%= render partial: 'comments/comment',
-              collection: @event.comments.except(@new_comment).order(created_at: :asc) %>
+                 <%= render partial: 'comments/commentable' %>
                 </div>
               <% else %>
                 <%= content_tag(:em, content_tag(:h6, t('.no_comments_yet'), class: 'text-center my-5 text-secondary')) %>
               <% end %>
-              <%# @new_comment создан будет в контроллере events в экшене show, а если  @new_comment=nil
-              то будет сформирована пустая заготовка %>
-              <%= render partial: 'comments/form',
-            locals: {comment: @new_comment || @event.comments.build} %>
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-6">
             <% if @event.subscriptions.exists? %>
               <div class="event-subscriptions mt-3">
                 <%= content_tag(:h3, t('titles.event_subscribers', count: @event.subscriptions.count), class: 'mb-3') %>
                 <div>
-                  <div class="row row-cols-auto">
+                  <div class="form-group mb-2">
                     <%= render partial: 'subscriptions/subscription',
                 collection: @event.subscriptions.except(@new_subscription).shuffle %>
                   </div>

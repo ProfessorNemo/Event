@@ -147,6 +147,17 @@ en:
       subject: 'New photo %{event}'
       photo: Photo
 
+  other:
+    title_name: Kebabs
+    sign_in: Sign_In
+    sign_up: Sign_Up
+    event: '%{event}'
+    profile: '%{name}'
+    profile_editing: Profile editing
+    change_password: Change Password
+    new_event: New event
+    password_recovery: Password recovery
+
   photos:
     photo:
       are_you_sure: Are you sure you want to delete this photo?
@@ -193,6 +204,7 @@ en:
     event_subscribers: 'Will go (%{count}):'
     forgot_password: Forgot your password?
     join: 'I will go:'
+    omission: "... (continued)"
     organized: Organized
     password_edit: Change Password
     pincode_access: PIN only access
