@@ -157,6 +157,8 @@ ru:
     change_password: Изменение пароля
     new_event: Новое событие
     password_recovery: Восстановление пароля
+    passed: Прошло
+    expected: Ожидается
 
   photos:
     photo:
