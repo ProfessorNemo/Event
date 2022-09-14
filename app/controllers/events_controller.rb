@@ -14,12 +14,13 @@ class EventsController < ApplicationController
   before_action :set_current_user_event, only: %i[edit update destroy]
 
   def index
-    @events = Event.all
+    @events = Event.randomize
   end
 
   def show
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
+    @new_photo = @event.photos.build(params[:photo])
   end
 
   def new
@@ -34,7 +35,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to @event, notice: t('controllers.events.created')
     else
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 

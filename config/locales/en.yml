@@ -187,7 +187,7 @@ en:
     message: 'Message:'
     no_events: User has not hosted any events yet
     or: or
-    password_length: 'At least %{length} characters'
+    password_length: Length should be 8-70 characters and include - 1 uppercase, 1 lowercase, 1 digit and 1 special character.
     pincode: Pin
     privacy_policy: Privacy policy
     to_main: Home

@@ -28,6 +28,8 @@ class User < ApplicationRecord
   # Если юзер уже подписывался, но хочет залогиниться, пройдя все валидации
   after_commit :link_subscriptions, on: :create
 
+  mount_uploader :avatar, AvatarUploader
+
   private
 
   # Задаем юзеру случайное имя, если оно пустое

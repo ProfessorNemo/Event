@@ -7,7 +7,7 @@
     ) %>
 
 <div class="row justify-content-md-center">
-  <div class="col-md-4 border rounded-bottom shadow mb-3 pt-2">
+  <div class="col-md-6 border rounded-bottom shadow mb-3 pt-2">
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
@@ -26,7 +26,7 @@
         <%= f.label :password, class: 'form-label' %>
         <%= f.password_field :password, class: 'form-control shadow-sm' %>
         <% if @minimum_password_length %>
-          <em><%= t('text.password_length', length: @minimum_password_length) %></em>
+          <em><%= t('text.password_length') %></em>
         <% end %>
       </div>
 

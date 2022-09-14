@@ -1,0 +1,12 @@
+<%= form_for [@event, photo], html: { multipart: true } do |f| %>
+  <%= render partial: 'partials/form_errors', locals: {model: photo} %>
+
+  <div class="mb-3 d-flex justify-content-center border-bottom pb-3">
+    <%= f.label :photo, t('photos.photo.choose_file'), class: 'btn btn-lg btn-secondary active' %>
+    <%= f.file_field :photo, class: 'visually-hidden' %>
+  </div>
+
+  <div class="actions d-flex justify-content-end">
+    <%= f.submit 'Загрузить', class: 'btn btn-success', data: {'bs-dismiss' => 'modal'} %>
+  </div>
+<% end %>

@@ -83,3 +83,7 @@ end
 group :test do
   gem 'database_cleaner-active_record'
 end
+
+gem "carrierwave", "~> 2.2"
+
+gem "rmagick", "~> 4.2"
