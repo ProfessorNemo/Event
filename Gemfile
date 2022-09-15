@@ -84,6 +84,11 @@ group :test do
   gem 'database_cleaner-active_record'
 end
 
-gem "carrierwave", "~> 2.2"
+# гем для загрузки изображений
+gem 'carrierwave', '~> 2.2'
 
-gem "rmagick", "~> 4.2"
+# гем для обработки изображений
+gem 'rmagick', '~> 4.2'
+
+# гем для подключения облачных решений
+gem 'fog-aws', '~> 3.15'

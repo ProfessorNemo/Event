@@ -1,4 +1,4 @@
-<%= tag.input value: "Комментарии #{'('}#{@event.comments.count}#{')'}",
+<%= tag.input value: "#{t('text.note')} #{'('}#{@event.comments.count}#{')'}",
         data: {'bs-toggle': 'collapse'} ,
 				href: "#collapseTwo", class: "btn btn-primary" %>
 
@@ -14,3 +14,4 @@
     </div>
   </div>
 </div>
+

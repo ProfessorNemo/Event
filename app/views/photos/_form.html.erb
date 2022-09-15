@@ -5,8 +5,8 @@
     <%= f.label :photo, t('photos.photo.choose_file'), class: 'btn btn-lg btn-secondary active' %>
     <%= f.file_field :photo, class: 'visually-hidden' %>
   </div>
-
+    <a> </a>
   <div class="actions d-flex justify-content-end">
-    <%= f.submit 'Загрузить', class: 'btn btn-success', data: {'bs-dismiss' => 'modal'} %>
+    <%= f.submit t('photos.photo.download'), class: 'btn btn-success', data: {'bs-dismiss' => 'modal'} %>
   </div>
 <% end %>

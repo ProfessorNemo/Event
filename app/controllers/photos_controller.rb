@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PhotosController < ApplicationController
   before_action :set_event, only: %i[create destroy]
 

@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   def full_title(page_title = '')
-    base_title = 'Kebabs'
+    base_title = 'Event'
     if page_title.present?
       "#{page_title} | #{base_title}"
     else
