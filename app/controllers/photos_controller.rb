@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 
 class PhotosController < ApplicationController
+  include SendMessage
+
+  before_action :authenticate_user!, only: :create
+
   before_action :set_event, only: %i[create destroy]
 
   before_action :set_photo, only: :destroy
 
   def create
     @new_photo = @event.photos.build(photo_params)
+    # Проставляем у фотографии пользователя
     @new_photo.user = current_user
 
     if @new_photo.save
+      notification_object(@event, @new_photo)
 
       redirect_to @event, notice: t('controllers.photos.created')
     else

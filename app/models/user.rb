@@ -45,6 +45,7 @@ class User < ApplicationRecord
     errors.add(:password, :password_error)
   end
 
+  # Если подписчик вдруг захотел залогиниться
   def link_subscriptions
     Subscription.where(user_id: nil, user_email: email)
                 .update_all(user_id: id)

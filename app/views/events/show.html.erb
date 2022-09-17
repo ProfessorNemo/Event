@@ -97,6 +97,8 @@
               </div>
             <% else %>
               <%= content_tag(:em, content_tag(:h6, t('.no_comments_yet'), class: 'text-center my-5 text-secondary')) %>
+              			<%= render partial: 'comments/form',
+							locals: {comment: @new_comment || @event.comments.build} %>
             <% end %>
           </div>
         </div>
@@ -118,8 +120,7 @@
           <% unless @event.user == current_user || @event.subscribers.include?(current_user) %>
           <div class="buffer-both">
             <%= render partial: 'subscriptions/form', locals: {
-            subscription: @new_subscription || @event.subscriptions.build
-          } %>
+                 subscription: @new_subscription || @event.subscriptions.build } %>
           </div>
         <% end %>
       </div>
