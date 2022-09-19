@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Sep 17 00:19:16 2022
+# Make data base, printed on Mon Sep 19 03:03:13 2022
 
 # Variables
 
@@ -14,6 +14,8 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -23,9 +25,7 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 SNAP_INSTANCE_KEY = 
 # environment
-GJS_DEBUG_OUTPUT = stderr
-# environment
-VSCODE_CWD = /home/professor
+VSCODE_CWD = /home/professor/Документы/rubytut/lesson52-58
 # environment
 WINDOWPATH = 2
 # environment
@@ -45,11 +45,13 @@ VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # environment
-PWD = /home/professor/Документы/rubytut/lesson52-57/bbq
+PWD = /home/professor/Документы/rubytut/lesson52-58/bbq
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu:/usr/share/gnome:/home/professor/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/professor/Документы/rubytut
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
@@ -66,12 +68,14 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.118
 # makefile
 MAKEFLAGS = pqrR
 # makefile
-CURDIR := /home/professor/Документы/rubytut/lesson52-57/bbq
+CURDIR := /home/professor/Документы/rubytut/lesson52-58/bbq
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -97,13 +101,11 @@ SNAP_REEXEC =
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 43138
+VSCODE_PID = 198938
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
-# environment
-BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # environment
 SESSION_MANAGER = local/professor-N56JRH:@/tmp/.ICE-unix/2899,unix/professor-N56JRH:/tmp/.ICE-unix/2899
 # automatic
@@ -115,7 +117,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"ru","availableLanguages":{"*":"ru"},"_languagePackId":"e2673fac9b3b0beb38d486c37331d2f9.ru","_translationsConfigFile":"/home/professor/.config/Code/clp/e2673fac9b3b0beb38d486c37331d2f9.ru/tcf.json","_cacheRoot":"/home/professor/.config/Code/clp/e2673fac9b3b0beb38d486c37331d2f9.ru","_resolvedLanguagePackCoreLocation":"/home/professor/.config/Code/clp/e2673fac9b3b0beb38d486c37331d2f9.ru/74b1f979648cc44d385a2286793c226e611f59e7","_corruptedFile":"/home/professor/.config/Code/clp/e2673fac9b3b0beb38d486c37331d2f9.ru/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"ru","availableLanguages":{"*":"ru"},"_languagePackId":"82b10cd20de2ad093dc119a3bdaec56e.ru","_translationsConfigFile":"/home/professor/.config/Code/clp/82b10cd20de2ad093dc119a3bdaec56e.ru/tcf.json","_cacheRoot":"/home/professor/.config/Code/clp/82b10cd20de2ad093dc119a3bdaec56e.ru","_resolvedLanguagePackCoreLocation":"/home/professor/.config/Code/clp/82b10cd20de2ad093dc119a3bdaec56e.ru/74b1f979648cc44d385a2286793c226e611f59e7","_corruptedFile":"/home/professor/.config/Code/clp/82b10cd20de2ad093dc119a3bdaec56e.ru/corrupted.info","_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -127,9 +129,9 @@ MAKECMDGOALS := all
 # environment
 XMODIFIERS = @im=ibus
 # environment
-GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+SHLVL = 1
 # environment
-SHLVL = 0
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/fdf6aff9_bab9_462a_b211_7b81e8a77208
 # environment
 MAKELEVEL := 0
 # default
@@ -137,7 +139,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = QOr97p3x2z0Nc5TiXecuBuVjxJ5OHFJP9XqQmvSyHo88ZKvrTd_W
 # environment
-PATH = /home/professor/.nvm/versions/node/v14.19.3/bin:/home/professor/.yarn/bin:/home/professor/.config/yarn/global/node_modules/.bin:/home/professor/.rbenv/shims:/home/professor/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/professor/Документы:/home/professor/.rbenv/shims:/home/professor/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/professor/Документы/rubytut/gits/meteoservice:/home/professor/.rbenv/shims:/home/professor/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/professor/Документы:/home/professor/.rbenv/shims:/home/professor/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/professor/Загрузки/chromedriver
+PATH = /home/professor/.nvm/versions/node/v14.19.3/bin:/home/professor/.yarn/bin:/home/professor/.config/yarn/global/node_modules/.bin:/home/professor/.rbenv/shims:/home/professor/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/professor/Документы:/home/professor/.rbenv/shims:/home/professor/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/professor/Документы/rubytut/gits/meteoservice:/home/professor/.rbenv/shims:/home/professor/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/professor/Документы:/home/professor/.rbenv/shims:/home/professor/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
 # default
 MAKEFILES := 
 # automatic
@@ -148,8 +150,6 @@ SNAP_USER_COMMON = /home/professor/snap/code/common
 SNAP = /snap/code/108
 # environment
 bbq = oceanborn
-# environment
-INVOCATION_ID = caf4ed2a35b04196b10e5cfb169f9d40
 # environment
 SNAP_REVISION = 108
 # environment
@@ -165,7 +165,7 @@ Hangman = oceanborn
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
-LS_COLORS = 
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # automatic
 +F = $(notdir $+)
 # environment
@@ -177,13 +177,11 @@ GNUMAKEFLAGS :=
 # environment
 LOGNAME = professor
 # environment
-GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
-# environment
 SNAP_ARCH = amd64
 # makefile
 .DEFAULT_GOAL := db!
 # environment
-SYSTEMD_EXEC_PID = 2983
+SYSTEMD_EXEC_PID = 6015
 # environment
 DISPLAY = :1
 # environment
@@ -197,21 +195,15 @@ SNAP_DATA = /var/snap/code/108
 # environment
 SNAP_CONTEXT = QOr97p3x2z0Nc5TiXecuBuVjxJ5OHFJP9XqQmvSyHo88ZKvrTd_W
 # environment
-MANAGERPID = 2402
-# environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 43087
-# environment
-_ = /snap/code/108/usr/share/code/code
-# environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
 GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
+COLORTERM = truecolor
+# environment
 GDK_PIXBUF_MODULE_FILE = /home/professor/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
 NVM_CD_FLAGS = 
-# environment
-JOURNAL_STREAM = 8:37372
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -224,6 +216,8 @@ QT_IM_MODULE = ibus
 ELECTRON_RUN_AS_NODE = 1
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-3833debe-1.71.2-main.sock
+# environment
+TERM = xterm-256color
 # environment
 SNAP_NAME = code
 # environment
@@ -247,6 +241,8 @@ VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
+VTE_VERSION = 6800
+# environment
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
@@ -261,7 +257,7 @@ GDMSESSION = ubuntu
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=125/1024=12%, Rehash=0, Collisions=3/157=2%
+# Load=123/1024=12%, Rehash=0, Collisions=10/155=6%
 
 # Pattern-specific Variable Values
 
@@ -278,9 +274,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # No implicit rules.
 
 # Files
-
  
 make: *** No rule to make target 'all'.  Stop.
+
 
 c: run-console
 #  Implicit rule search has not been done.
@@ -401,6 +397,6 @@ create:
 # strcache performance: lookups = 67 / hit rate = 26%
 # hash-table stats:
 # Load=49/8192=1%, Rehash=0, Collisions=0/67=0%
-# Finished Make data base on Sat Sep 17 00:19:16 2022
+# Finished Make data base on Mon Sep 19 03:03:13 2022
 
  
