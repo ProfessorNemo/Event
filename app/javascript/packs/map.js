@@ -1,8 +1,6 @@
 // Функция ymaps.ready() будет вызвана, когда
 // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
-ymaps.ready(init);
-
-function init() {
+ymaps.ready(() => {
     const address = document.getElementById('map').getAttribute('data-address');
 
     const myMap = new ymaps.Map("map", {
@@ -29,4 +27,4 @@ function init() {
             alert('Ошибка при определении местоположения');
         }
     );
-}
+});

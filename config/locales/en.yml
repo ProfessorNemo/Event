@@ -119,7 +119,6 @@ en:
       no_comments_yet: There are no comments yet.
       no_photo_yet: There are no photos yet.
       only_authorized_users: Only registered users can add photos.
-      show_on_map: To show on the map
 
   event_mailer:
     comment:
@@ -192,6 +191,7 @@ en:
     password_length: Length should be 8-70 characters and include - 1 uppercase, 1 lowercase, 1 digit and 1 special character.
     pincode: Pin
     privacy_policy: Privacy policy
+    show_on_map: To show on the map
     to_main: Home
     waiting_confirmation: 'Currently waiting for confirmation for: %{email}'
 

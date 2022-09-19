@@ -1,0 +1,24 @@
+<head>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=<%= Rails.application.credentials.dig(:maps, :api_key) %>&lang=ru_RU" type="text/javascript"></script>
+  <%= javascript_pack_tag 'map' %>
+</head>
+
+<%= tag.input value: "#{t('text.show_on_map')}",
+        data: {'bs-toggle': 'collapse'} ,
+				href: "#collapseTwo", class: "btn btn-warning active btn-sm fs-5" %>
+
+ <%= tag.div class: "collapse #{'show' if html_id == "map"}" do %>
+	<div class="panel-heading" id="collapse" class="panel">
+		<div id="collapseTwo" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div class="modal-dialog modal-xl">
+					<div class="modal-content">
+						<div class="modal-header">
+							<div id="map" data-address="<%= @event.address %>" style="width: 565px; height: 300px"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<% end %>
