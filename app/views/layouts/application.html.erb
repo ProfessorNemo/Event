@@ -11,8 +11,6 @@
 
     <title><%= full_title(yield(:page_title)) %></title>
 
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=<%= Rails.application.credentials.dig(:maps, :api_key) %>&lang=ru_RU" type="text/javascript"></script>
-
     <%= csrf_meta_tags %>
 
     <%# подключение css иконок %>
