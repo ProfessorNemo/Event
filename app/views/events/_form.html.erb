@@ -1,33 +1,39 @@
-    <%= form_for(@event) do |f| %>
-      <%= render partial: 'partials/form_errors', locals: {model: @event} %>
+<%= form_for(@event) do |f| %>
+  <%= render partial: 'partials/form_errors', locals: {model: @event} %>
 
 
   <div class="form-group mb-2">
-        <%= f.label :title, class: 'fs-5' %>
-        <%= f.text_field :title, class: 'form-control shadow-sm' %>
-      </div>
+    <%= f.label :title, class: 'fs-5' %>
+    <%= f.text_field :title, class: 'form-control shadow-sm' %>
+  </div>
 
 
   <div class="form-group mb-2">
-        <%= f.label :address, class: 'fs-5' %>
-        <%= f.text_field :address, class: 'form-control shadow-sm' %>
-      </div>
+    <%= f.label :address, class: 'fs-5' %>
+    <%= f.text_field :address, class: 'form-control shadow-sm' %>
+  </div>
 
 
   <div class="form-group mb-2">
-        <%= f.label :datetime, class: 'fs-5' %>
-        <p><%= f.datetime_select :datetime, class: 'form-select shadow-sm' %></p>
-      </div>
+    <%= f.label :datetime, class: 'fs-5' %>
+    <p><%= f.datetime_select :datetime, class: 'form-select shadow-sm' %></p>
+  </div>
 
 
   <div class="form-group mb-2">
-        <%= f.label :description, class: 'fs-5' %>
-        <%= f.text_area :description, class: 'form-control shadow-sm' %>
-      </div>
+    <%= f.label :description, class: 'fs-5' %>
+    <%= f.text_area :description, class: 'form-control shadow-sm' %>
+  </div>
 
-      <div class="actions">
-        <%= link_to t('buttons.back'), user_path(current_user), class: 'link-secondary' %>
-        <%= t('text.or')%>
-        <%= f.submit t('buttons.save'), class: 'btn btn-primary rounded-pill shadow-sm' %>
-      </div>
-    <% end %>
+
+  <div class="form-group col-md-4 mb-3 ">
+    <%= f.label :pincode, class: 'fs-5' %>
+    <%= f.text_field :pincode, class: 'form-control shadow-sm' %>
+  </div>
+
+  <div class="actions">
+    <%= link_to t('buttons.back'), user_path(current_user), class: 'link-secondary' %>
+    <%= t('text.or')%>
+    <%= f.submit t('buttons.save'), class: 'btn btn-primary rounded-pill shadow-sm' %>
+  </div>
+<% end %>

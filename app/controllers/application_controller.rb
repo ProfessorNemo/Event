@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  # protect_from_forgery with: :exception
+
   include Internationalization
   include ErrorHandling
   include ActionView::RecordIdentifier
@@ -35,8 +37,6 @@ class ApplicationController < ActionController::Base
       (model.try(:event).present? && model.event.user == current_user)
     )
   end
-
-  helper_method :current_user_can_edit?
 end
 
 # model.try(:event) - вызвать у объекта model метод, который передали в качестве символа.

@@ -1,8 +1,8 @@
-<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-5">
   <div class="thumbnail mb-4 shadow">
 
     <%= content_tag 'div', '', class: 'event-background',
-      style: "background-image: url(#{asset_path('event_thumb.jpg')})" %>
+      style: "background-image: url(#{event_photo(event)})" %>
 
     <div class="thumbnail-inner event-info-inner">
       <div class="caption m-2">
@@ -10,6 +10,11 @@
           <%= content_tag(:h3, link_to(event.title, event_path(event)), class: 'fw-light') %>
           <%= content_tag(:h5, l(event.datetime, format: :long), class: 'fw-lighter') %>
           <%= content_tag(:div, event.address, class: 'buffer-both text-break') %>
+          <div>
+            <% event.visitors.sample(4).each do |user| %>
+              <%= link_to(user_avatar_thumb(user), user_path(user)) %>
+            <% end %>
+          </div>
           <% if event.datetime < Time.now %>
                <%= content_tag(:div, t('other.ended'), class: 'buffer-both text-break') %>
           <% else %>
@@ -20,3 +25,4 @@
     </div>
   </div>
 </div>
+

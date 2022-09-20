@@ -43,7 +43,7 @@ ru:
   app:
     company: Хороший программист
     creator: 'Автор проекта:'
-    name: Шашлыки
+    name: Событие
 
   account:
     destroy_confirm: Вы уверены?
@@ -119,7 +119,6 @@ ru:
       no_comments_yet: Комментариев пока нет.
       no_photo_yet: Фотографий пока нет.
       only_authorized_users: Добавлять фото могут только зарегистрированные пользователи.
-      show_on_map: Показать на карте
 
   event_mailer:
     comment:
@@ -164,7 +163,8 @@ ru:
     photo:
       are_you_sure: Вы уверены, что хотите удалить эту фотографию?
       add: 'Добавил:'
-      choose_file: Выберите файл
+      choose_file: 'Выберите файл: ( .jpg .jpeg .gif .png )'
+      download: Загрузить
 
   pundit:
     no_access: Нет доступа
@@ -186,10 +186,12 @@ ru:
     linked_accounts: 'Связанные аккаунты:'
     message: 'Сообщение:'
     no_events: Пользователь пока не организовал ни одного события
+    note: "Комментарии"
     or: или
-    password_length: 'Не менее %{length} символов'
+    password_length: Длина должна быть от 8 до 70 символов и включать 1 прописную, 1 строчную, 1 цифру и 1 специальный символ.
     pincode: Пин-код
     privacy_policy: Политика конфиденциальности
+    show_on_map: Показать на карте
     to_main: На главную
     waiting_confirmation: 'В настоящее время ожидает подтверждения для: %{email}'
 

@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   # Событие принадлежит юзеру
   belongs_to :user
 
+  has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   # Для того, чтобы  рельсы понимали, какой класс лежит в связи
@@ -17,4 +18,16 @@ class Event < ApplicationRecord
   # Также у события должны быть заполнены место и время проведения
   validates :address, presence: true
   validates :datetime, presence: true
+
+  scope :randomize, -> { order('random()') }
+
+  # Все, кто идет на событие
+  def visitors
+    [user, *subscribers].uniq
+  end
+
+  # совпадает ли переданный параметр с пинкодом этого события
+  def pincode_valid?(pin2chek)
+    pincode == pin2chek
+  end
 end

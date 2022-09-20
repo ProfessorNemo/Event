@@ -43,7 +43,7 @@ en:
   app:
     company: Good programmer
     creator: 'Project author:'
-    name: Kebabs
+    name: Event
 
   account:
     destroy_confirm: Are you sure?
@@ -119,7 +119,6 @@ en:
       no_comments_yet: There are no comments yet.
       no_photo_yet: There are no photos yet.
       only_authorized_users: Only registered users can add photos.
-      show_on_map: To show on the map
 
   event_mailer:
     comment:
@@ -164,7 +163,8 @@ en:
     photo:
       are_you_sure: Are you sure you want to delete this photo?
       add: 'Added:'
-      choose_file: Choose a file
+      choose_file: 'Choose a file: ( .jpg .jpeg .gif .png )'
+      download: Download
 
   pundit:
     no_access: No access
@@ -186,10 +186,12 @@ en:
     linked_accounts: 'Linked accounts:'
     message: 'Message:'
     no_events: User has not hosted any events yet
+    note: "Comments"
     or: or
-    password_length: 'At least %{length} characters'
+    password_length: Length should be 8-70 characters and include - 1 uppercase, 1 lowercase, 1 digit and 1 special character.
     pincode: Pin
     privacy_policy: Privacy policy
+    show_on_map: To show on the map
     to_main: Home
     waiting_confirmation: 'Currently waiting for confirmation for: %{email}'
 

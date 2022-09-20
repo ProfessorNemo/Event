@@ -1,0 +1,12 @@
+
+<%= content_tag(:h1, t('.title')) %>
+<p><%= t('.name') %>: <strong><%= @name %></strong></p>
+<p><%= t('.email') %>: <strong><%= link_to @email, "mailto:#{@email}" %></strong></p>
+
+<hr/>
+<%= t('.event') %>
+<%= content_tag(:h3, content_tag(:a, @event.title, href: event_url(@event, locale: I18n.locale.to_sym))) %>
+<%= t('.datetime') %>
+<%= content_tag(:h4, l(@event.datetime)) %>
+<%= t('.owner') %>
+<%= content_tag(:h4, @event.user.name) %>

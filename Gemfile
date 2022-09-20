@@ -5,40 +5,28 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.3'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
-# Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
-# Use Puma as the app server
 gem 'puma', '~> 5.0'
-# Use SCSS for stylesheets
+gem 'rails', '~> 6.1.6', '>= 6.1.6.1'
 gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.7'
+gem 'webpacker', '~> 5.0'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
-gem 'devise', '~> 4.8'
-# Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-
+gem 'devise', '~> 4.8'
 gem 'foreman', '~> 0.87.2'
+
 # для проверки корректности введенного email
 gem 'valid_email2', '~> 4.0'
 
 # Гем, интегрирующий bootstrap
-gem 'twitter-bootstrap-rails'
-
 gem 'jquery-rails'
+gem 'twitter-bootstrap-rails'
 
 # Переводы
 gem 'devise-i18n'
@@ -52,7 +40,6 @@ gem 'svg-flags-rails', '>= 1.0.0-beta' # ISO country flags https://github.com/st
 gem 'famfamfam_flags_rails'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
@@ -83,3 +70,12 @@ end
 group :test do
   gem 'database_cleaner-active_record'
 end
+
+# гем для загрузки изображений
+gem 'carrierwave', '~> 2.2'
+
+# гем для обработки изображений
+gem 'rmagick', '~> 4.2'
+
+# гем для отправки почты в development
+gem 'letter_opener'

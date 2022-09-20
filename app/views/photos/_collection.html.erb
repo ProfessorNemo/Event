@@ -1,0 +1,10 @@
+<div class="carousel-item <%= 'active' if photo_iteration.first? %>" style="height: 500px;" data-bs-interval="6500">
+  <a href="<%= event_path(photo.event) %>">
+    <%= content_tag 'div', '', class: 'banner-background',
+        style: "background-image: url(#{photo.photo.url})" %>
+    <div class="carousel-caption d-none d-md-block pb-0">
+      <h2 class="fs-1 fw-light mb-4 btn btn-warning py-0"><%= photo.event.title %></h2>
+      <p class="fw-light fs-4"><%= l(photo.event.datetime, format: :short) %><p>
+    </div>
+  </a>
+</div>

@@ -9,11 +9,12 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
 import '@popperjs/core'
-import 'bootstrap/js/dist/dropdown'
-import './custom.js'
-// для отображения выпадающей формы
-import 'bootstrap/js/dist/collapse'
 
+import './custom.js'
+
+import './lightbox'
+
+import './bootstrap_js_files.js'
 
 Rails.start()
 Turbolinks.start()

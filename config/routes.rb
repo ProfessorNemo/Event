@@ -9,12 +9,20 @@ Rails.application.routes.draw do
     root 'events#index'
 
     resources :events do
-      # вложенный ресурс комментов
+      # вложенный ресурс комментовX
       resources :comments, only: %i[create destroy]
-
+      resources :photos, only: %i[create destroy]
       resources :subscriptions, only: %i[create destroy]
+
+      post :show, on: :member
     end
 
     resources :users, only: %i[show edit update]
   end
 end
+
+# Если у события есть пин-код, то при обращении к "events#show" в запросе будет
+# рендериться форма ввода пинкода. В эту форму юзер вводит пинкод, нажимает отправить
+# и при отправке эта же форма будет выдавать post-запрос по адресу этого же события,
+# а именнно "events#show" (это GET-зпрос). Добавляем двойной функционал приема POST-
+# запроса по этому же url.
