@@ -1,1 +1,0 @@
-{"buildTargets":["create","db","db!","migrate","migration","model","rubocop","run-console","test","web","webpacker"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
