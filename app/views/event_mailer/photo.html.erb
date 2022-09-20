@@ -1,0 +1,17 @@
+<%= content_tag(:h1, t('.title')) %>
+
+<%= link_to image_tag("#{'http://127.0.0.1:3000/'}#{@photo.photo.thumb.url}",
+       class: 'd-block w-100', style: 'object-fit: cover;', height: '100px'),
+          "#{'http://127.0.0.1:3000/'}#{@photo.photo.url}",
+			    data: {lightbox: 'roadtrip', alt: 'photo'},
+			    locale: I18n.locale.to_sym %>
+
+<p><%= t('.author') %>: <strong><%= @photo.user.name %></strong></p>
+
+<hr/>
+<%= t('.event') %>
+<%= content_tag(:h3, content_tag(:a, @event.title, href: event_url(@event, locale: I18n.locale.to_sym))) %>
+<%= t('.datetime') %>
+<%= content_tag(:h4, l(@event.datetime, format: :long)) %>
+<%= t('.owner') %>
+<%= content_tag(:h4, @event.user.name) %>

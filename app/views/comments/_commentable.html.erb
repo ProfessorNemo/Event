@@ -1,17 +1,19 @@
-<%= tag.input value: "#{t('text.note')} #{'('}#{@event.comments.count}#{')'}",
-        data: {'bs-toggle': 'collapse'} ,
-				href: "#collapseTwo", class: "btn btn-primary" %>
+	<%= tag.input value: "#{t('text.note')} #{'('}#{@event.comments.count}#{')'}",
+					data: {'bs-toggle': 'collapse'} ,
+					href: "#collapseTwo", class: "btn btn-primary" %>
 
-<div class="panel-heading" id="collapse" class="panel">
-  <div id="collapseTwo" class="panel-collapse collapse">
-    <div class="panel-body">
-      <%= render partial: 'comments/comment',
-				collection: @event.comments.except(@new_comment).order(created_at: :asc) %>
-			<%# @new_comment создан будет в контроллере events в экшене show, а если  @new_comment=nil
-											то будет сформирована пустая заготовка %>
-			<%= render partial: 'comments/form',
-							locals: {comment: @new_comment || @event.comments.build} %>
-    </div>
-  </div>
-</div>
+ <%= tag.div class: "collapse #{'show' if html_id == "comments"}" do %>
+		<div class="panel-heading" id="collapse" class="panel">
+			<div id="collapseTwo" class="panel-collapse collapse">
+				<div class="panel-body">
+					<%= render partial: 'comments/comment',
+						collection: @event.comments.except(@new_comment).order(created_at: :asc) %>
+					<%# @new_comment создан будет в контроллере events в экшене show, а если  @new_comment=nil
+													то будет сформирована пустая заготовка %>
+					<%= render partial: 'comments/form',
+									locals: {comment: @new_comment || @event.comments.build} %>
+				</div>
+			</div>
+		</div>
+<% end %>
 

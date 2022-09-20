@@ -16,39 +16,41 @@
             <%= content_tag(:p, @event.description, class: 'text-break') %>
           </div>
 
+          <%= render partial: 'events/button' %>
+
           <div class="form-group mb-2">
-          <% if current_user_can_edit?(@event) %>
-            <div class="buffer-top">
-              <%= link_to t('buttons.change'), edit_event_path(@event),
+            <% if current_user_can_edit?(@event) %>
+              <div class="buffer-top">
+                <%= link_to t('buttons.change'), edit_event_path(@event),
                 class: 'btn btn-secondary mb-1 rounded-pill' %>
-              <%= link_to t('buttons.event_delete'), event_path(@event), class: 'btn btn-danger mb-1 rounded-pill',
+                <%= link_to t('buttons.event_delete'), event_path(@event), class: 'btn btn-danger mb-1 rounded-pill',
                 method: :delete, data: { confirm: t('.are_you_sure') } %>
+              </div>
+            <% end %>
+
+            <div class="row">
+              <%= content_tag(:h3, t('titles.event_creator'), class: 'text-center mt-4 fw-light') %>
+              <div class="d-flex justify-content-center">
+                <a href="<%= user_path(@event.user) %>" class="p-1 link-dark">
+                  <div>
+                    <%= image_tag user_avatar(@event.user), class: 'avatar-event border border-3 border-white' %>
+                    <%= content_tag(:div, content_tag(:strong, @event.user.name, class: 'fs-3 text-light fw-light'), class: 'text-center mt-2') %>
+                  </div>
+                </a>
+              </div>
             </div>
-          <% end %>
 
-          <div class="row">
-            <%= content_tag(:h3, t('titles.event_creator'), class: 'text-center mt-4 fw-light') %>
-            <div class="d-flex justify-content-center">
-              <a href="<%= user_path(@event.user) %>" class="p-1 link-dark">
-                <div>
-                  <%= image_tag user_avatar(@event.user), class: 'avatar-event border border-3 border-white' %>
-                  <%= content_tag(:div, content_tag(:strong, @event.user.name, class: 'fs-3 text-light fw-light'), class: 'text-center mt-2') %>
-                </div>
-              </a>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-md-8">
-              <div class="event-photos">
-                <% unless @event.photos.count.zero? %>
+            <div class="row">
+              <div class="col-md-8">
+                <div class="event-photos">
+                  <% unless @event.photos.count.zero? %>
                   <%= content_tag(:h3, t('titles.event_photos', count: @event.photos.count), class: 'fw-light mb-3') %>
-                  <div class="event-photos-gallery shadow">
+                  <div
+                    class="event-photos-gallery shadow">
                     <%# Выводим все фотографии события <!-- Carousel -->%>
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                       <div class="carousel-inner rounded">
-                          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo).shuffle %>
+                        <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo).shuffle %>
                       </div>
                       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -62,69 +64,69 @@
 
                 <div class="d-flex justify-content-center">
                   <button type="button" class="btn btn-secondary mt-3 <%= 'disabled' unless current_user.present? %>" data-bs-toggle="modal" data-bs-target="#fileLoad">
-                      <%= t('.add_photo') %>
-                 </button>
+                    <%= t('.add_photo') %>
+                  </button>
                 </div>
                 <div class="d-flex justify-content-center mt-3">
                   <% unless current_user.present? %>
-                    <p class="text-danger fw-light"><%= t('.only_authorized_users') %></p>
-                  <% end %>
-                </div>
+                  <p class="text-danger fw-light"><%= t('.only_authorized_users') %></p>
+                <% end %>
+              </div>
 
-                <!-- Modal photo download -->
-                <div class="modal" id="fileLoad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="fileLoadLabel" aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <%= content_tag(:h5, t('.load_photo'), class: 'modal-title') %>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        <div class="event-photo-form">
-                          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
-                        </div>
+              <!-- Modal photo download -->
+              <div class="modal" id="fileLoad" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="fileLoadLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <%= content_tag(:h5, t('.load_photo'), class: 'modal-title') %>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <div class="event-photo-form">
+                        <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
 
-          <div class="row justify-content-md-center">
-            <div class="col-md-11 my-4">
-              <% if @event.comments.exists? %>
-                <%= content_tag(:h3, t('.comments', count: @event.comments.count), class: 'fw-light') %>
-                <%= render partial: 'comments/commentable' %>
-              </div>
-            <% else %>
-              <%= content_tag(:em, content_tag(:h6, t('.no_comments_yet'), class: 'text-center my-5 text-secondary')) %>
-            <% end %>
+            <div class="row justify-content-md-center">
+              <div class="col-md-11 my-4">
+                <% if @event.comments.exists? %>
+                  <%= content_tag(:h3, t('.comments', count: @event.comments.count), class: 'fw-light') %>
+                  <%= render partial: 'comments/commentable', locals: {html_id: "comments"} %>
+                </div>
+              <% else %>
+                <%= content_tag(:em, content_tag(:h6, t('.no_comments_yet'), class: 'text-center my-5 text-secondary')) %>
+                <%= render partial: 'comments/form',
+							locals: {comment: @new_comment || @event.comments.build} %>
+              <% end %>
+            </div>
           </div>
-        </div>
 
-        <div class="col-md-6">
-          <% if @event.subscriptions.exists? %>
-            <div class="event-subscriptions mt-3">
-              <%= content_tag(:h3, t('titles.event_subscribers', count: @event.subscriptions.count), class: 'mb-3') %>
-              <div>
-                <div class="form-group mb-2">
-                  <%= render partial: 'subscriptions/subscription',
+          <div class="col-md-6">
+            <% if @event.subscriptions.exists? %>
+              <div class="event-subscriptions mt-3">
+                <%= content_tag(:h3, t('titles.event_subscribers', count: @event.subscriptions.count), class: 'mb-3') %>
+                <div>
+                  <div class="form-group mb-2">
+                    <%= render partial: 'subscriptions/subscription',
                 collection: @event.subscriptions.except(@new_subscription).shuffle %>
+                  </div>
                 </div>
               </div>
+            <% else %>
+              <%= content_tag(:em, content_tag(:p, t('.members_be_here'), class: 'text-center text-secondary my-3')) %>
+            <% end %>
+            <% unless @event.user == current_user || @event.subscribers.include?(current_user) %>
+            <div class="buffer-both">
+              <%= render partial: 'subscriptions/form', locals: {
+                 subscription: @new_subscription || @event.subscriptions.build } %>
             </div>
-          <% else %>
-            <%= content_tag(:em, content_tag(:p, t('.members_be_here'), class: 'text-center text-secondary my-3')) %>
           <% end %>
-          <% unless @event.user == current_user || @event.subscribers.include?(current_user) %>
-          <div class="buffer-both">
-            <%= render partial: 'subscriptions/form', locals: {
-            subscription: @new_subscription || @event.subscriptions.build
-          } %>
-          </div>
-        <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div></div></div></div>
-
-<%# <%= javascript_pack_tag 'map' %>
+</div></div></div>

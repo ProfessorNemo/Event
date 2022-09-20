@@ -76,6 +76,28 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  # Чтобы devise знал, что у actionmailer проставлен базовый url
+  ## НАСТРОЙКА ACTION_MAILER
+
+  # Чтобы devise знал, что у actionmailer проставлен базовый url.
+  # Где живет приложение (адрес хоста). Это нужно для того, чтоб
+  # правильным образом генерировать полные ссылки с именем домена
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
+
+  # Отправка будет происходить через letter_opener. В продакшене
+  # будет не "delivery_method"
+  config.action_mailer.delivery_method = :letter_opener
+  # true, потому что изначально в девелопменте письма не отправляются вовсе
+  config.action_mailer.perform_deliveries = true
+
+  # config.action_mailer.delivery_method = :smtp
+
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.sendgrid.com',
+  #   port: '465',
+  #   domain: 'gmail.com',
+  #   user_name: Rails.application.credentials.dig(:action_mailer, :mail_from),
+  #   password: Rails.application.credentials.dig(:action_mailer, :password),
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true
+  # }
 end

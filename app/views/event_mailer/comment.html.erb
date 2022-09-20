@@ -1,0 +1,13 @@
+
+<%= content_tag(:h1, t('.title')) %>
+<%= content_tag(:p, @comment.body) %>
+
+<p><%= t('.author') %>: <strong><%= @comment.user_name %></strong></p>
+
+<hr/>
+<%= content_tag(:p, t('.event')) %>
+<%= content_tag(:h3, content_tag(:a, @event.title, href: event_url(@event, locale: I18n.locale.to_sym))) %>
+<%= t('.datetime') %>
+<%= content_tag(:h4, l(@event.datetime, format: :long)) %>
+<%= t('.owner') %>
+<%= content_tag(:h4, @event.user.name) %>
