@@ -16,7 +16,7 @@
             <%= content_tag(:p, @event.description, class: 'text-break') %>
           </div>
 
-          <%= render partial: 'events/button', locals: {html_id: "map"}  %>
+          <%= render partial: 'events/button' %>
 
           <div class="form-group mb-2">
             <% if current_user_can_edit?(@event) %>

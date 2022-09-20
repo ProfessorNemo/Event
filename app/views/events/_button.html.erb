@@ -3,22 +3,20 @@
   <%= javascript_pack_tag 'map' %>
 </head>
 
-<%= tag.input value: "#{t('text.show_on_map')}",
-        data: {'bs-toggle': 'collapse'} ,
-				href: "#collapseTwo", class: "btn btn-warning active btn-sm fs-5" %>
+</p>
+  <button class="btn btn-warning active btn-sm fs-5" type="button" style="width: 180px; height: 35px;" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <%= t('text.show_on_map') %>
+  </button>
+</p>
 
- <%= tag.div class: "collapse #{'show' if html_id == "map"}" do %>
-	<div class="panel-heading" id="collapse" class="panel">
-		<div id="collapseTwo" class="panel-collapse collapse">
-			<div class="panel-body">
-				<div class="modal-dialog modal-xl">
-					<div class="modal-content">
-						<div class="modal-header">
-							<div id="map" data-address="<%= @event.address %>" style="width: 565px; height: 300px"></div>
-						</div>
-					</div>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <div class="modal-dialog modal-l">
+			<div class="modal-content">
+				<div class="modal-header">
+					<div id="map" data-address="<%= @event.address %>" style="width: 600px; height: 350px"></div>
 				</div>
 			</div>
-		</div>
-	</div>
-<% end %>
+    </div>
+  </div>
+</div>
