@@ -93,7 +93,7 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   ActionMailer::Base.smtp_settings = {
     address: 'maildev',
-    port: '25',
+    port: '1025',
     authentication: :plain,
     enable_starttls_auto: true,
     openssl_verify_mode: 'none'

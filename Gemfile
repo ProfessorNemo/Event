@@ -79,5 +79,3 @@ gem 'rmagick', '~> 4.2'
 
 # гем для отправки почты в development
 gem 'letter_opener'
-
-gem 'mailjet'
