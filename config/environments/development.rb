@@ -36,7 +36,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -81,13 +81,23 @@ Rails.application.configure do
   # Чтобы devise знал, что у actionmailer проставлен базовый url.
   # Где живет приложение (адрес хоста). Это нужно для того, чтоб
   # правильным образом генерировать полные ссылки с именем домена
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'localhost:3000', protocol: 'http' }
 
   # Отправка будет происходить через letter_opener. В продакшене
   # будет не "delivery_method"
-  config.action_mailer.delivery_method = :letter_opener
+  # config.action_mailer.delivery_method = :letter_opener
   # true, потому что изначально в девелопменте письма не отправляются вовсе
+  # config.action_mailer.perform_deliveries = true
+
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+  ActionMailer::Base.smtp_settings = {
+    address: 'maildev',
+    port: '25',
+    authentication: :plain,
+    enable_starttls_auto: true,
+    openssl_verify_mode: 'none'
+  }
 
   # config.action_mailer.delivery_method = :smtp
 
@@ -99,5 +109,6 @@ Rails.application.configure do
   #   password: Rails.application.credentials.dig(:action_mailer, :password),
   #   authentication: 'plain',
   #   enable_starttls_auto: true
+  #   openssl_verify_mode: 'none'
   # }
 end
