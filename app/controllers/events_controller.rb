@@ -17,21 +17,17 @@ class EventsController < ApplicationController
 
   before_action :password_guard!, only: [:show]
 
-  before_action :authorize_event!, except: %i[index]
-  after_action :verify_authorized, except: %i[index]
+  before_action :authorize_event!, except: %i[index show]
+  after_action :verify_authorized, except: %i[index show]
 
   def index
     @events = Event.randomize
   end
 
   def show
-    authorize @event
-
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
-  rescue Pundit::NotAuthorizedError
-    password_guard!
   end
 
   def new
@@ -82,7 +78,7 @@ class EventsController < ApplicationController
       # его в куках в ключе "events_#{@event.id}_pincode":
       # cookies.permanent["events_#{@event.id}_pincode".to_sym] = params[:pincode]
       cookies[remember_pin] = { value: params[:pincode], expires: 6.hours.from_now }
-      cookies.encrypted.permanent[:user_id] = current_user.id
+      cookies.encrypted.permanent[:user_id] = current_user.id if current_user.present?
     end
 
     # Проверяем — верный ли в куках пинкод, если нет — ругаемся и рендерим форму
