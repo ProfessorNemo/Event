@@ -17,14 +17,21 @@ class EventsController < ApplicationController
 
   before_action :password_guard!, only: [:show]
 
+  before_action :authorize_event!, except: %i[index]
+  after_action :verify_authorized, except: %i[index]
+
   def index
     @events = Event.randomize
   end
 
   def show
+    authorize @event
+
     @new_comment = @event.comments.build(params[:comment])
     @new_subscription = @event.subscriptions.build(params[:subscription])
     @new_photo = @event.photos.build(params[:photo])
+  rescue Pundit::NotAuthorizedError
+    password_guard!
   end
 
   def new
@@ -100,5 +107,9 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:title, :address, :datetime, :description, :pincode)
+  end
+
+  def authorize_event!
+    authorize(@event || Event)
   end
 end
