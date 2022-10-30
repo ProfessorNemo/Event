@@ -11,7 +11,7 @@
           <%= content_tag(:h5, l(event.datetime, format: :long), class: 'fw-lighter') %>
           <%= content_tag(:div, event.address, class: 'buffer-both text-break') %>
           <div>
-            <% event.visitors.sample(4).each do |user| %>
+            <% event.visitors.sample(2).each do |user| %>
               <%= link_to(user_avatar_thumb(user), user_path(user)) %>
             <% end %>
           </div>

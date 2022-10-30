@@ -1,11 +1,18 @@
 # frozen_string_literal: true
 
+require 'resque/server'
+
 Rails.application.routes.draw do
   # например localhost/ru/questions, localhost/en/questions, localhost/questions
   # locale: /#{I18n.available_locales.join("|")}/ - проверка, что запрошенная локаль входит
   # в массив %i[en ru], а ("|") - "или" (локаль или такая, или такая.....)
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :users
+
+    authenticate :user do
+      mount Resque::Server.new, at: '/jobs'
+    end
+
     root 'events#index'
 
     resources :events do

@@ -3,6 +3,8 @@
 require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
+  config.active_job.queue_adapter = :resque
+  config.active_job.queue_name_prefix = "event_#{Rails.env}"
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -88,16 +90,4 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener
   # true, потому что изначально в девелопменте письма не отправляются вовсе
   config.action_mailer.perform_deliveries = true
-
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address: 'smtp.sendgrid.com',
-  #   port: '465',
-  #   domain: 'gmail.com',
-  #   user_name: Rails.application.credentials.dig(:action_mailer, :mail_from),
-  #   password: Rails.application.credentials.dig(:action_mailer, :password),
-  #   authentication: 'plain',
-  #   enable_starttls_auto: true
-  #   openssl_verify_mode: 'none'
-  # }
 end

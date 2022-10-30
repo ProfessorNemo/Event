@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class PhotosController < ApplicationController
-  include SendMessage
-
   before_action :authenticate_user!, only: :create
 
   before_action :set_event, only: %i[create destroy]
@@ -15,7 +13,7 @@ class PhotosController < ApplicationController
     @new_photo.user = current_user
 
     if @new_photo.save
-      notification_object(@event, @new_photo)
+      EventEmailNotificationJob.perform_later(@new_photo)
 
       redirect_to @event, notice: t('controllers.photos.created')
     else

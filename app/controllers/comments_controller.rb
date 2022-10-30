@@ -2,8 +2,6 @@
 
 # Контроллер вложенного ресурса комментариев
 class CommentsController < ApplicationController
-  include SendMessage
-
   # задаем "родительский" event для коммента
   before_action :set_event, only: %i[create destroy]
 
@@ -17,7 +15,7 @@ class CommentsController < ApplicationController
 
     if @new_comment.save
       # уведомляем всех подписчиков о новом комментарии
-      notification_object(@event, @new_comment)
+      EventEmailNotificationJob.perform_later(@new_comment)
 
       # если сохранился успешно, редирект на страницу самого события
       redirect_to @event, notice: t('controllers.comments.created')
