@@ -71,7 +71,7 @@ maps:
   api_key: <value>
 mail:
   default_mail: <value>
-	mailjet_api_key: <value>
+  mailjet_api_key: <value>
   mailjet_secret_key: <value>
 oauth:
   vkontakte_app_id: <value>
@@ -87,6 +87,7 @@ oauth:
 `:maps` — [`Yandex.Maps API`](https://yandex.ru/dev/maps)
 
 `:oauth` — [`OAuth VK`](https://dev.vk.com/) [`OAuth Github`](https://developer.github.com/) [`OAuth Google`](https://developers.google.com/identity/protocols/oauth2)
+
 
 
 6. Start sever:
