@@ -65,6 +65,7 @@ gem 'rmagick', '~> 4.2'
 
 # гем для отправки почты в development
 gem 'letter_opener'
+gem 'mailjet', '~> 1.7'
 gem 'pundit', '~> 2.2'
 gem 'resque', '~> 2.4'
 gem 'resque-scheduler', '~> 4.7'

@@ -96,5 +96,6 @@ $ bin/dev
 ### Сommands to run test:
 ```
 $ bundle exec rspec spec/models/users_spec.rb
+```
 
 Open `localhost:3000` or `lvh.me:3000` in browser.

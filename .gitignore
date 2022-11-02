@@ -34,6 +34,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+.yarn/*
 public/uploads
 .vscode/*
 /app/assets/builds/*
