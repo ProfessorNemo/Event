@@ -88,9 +88,45 @@ oauth:
 
 `:oauth` — [`OAuth VK`](https://dev.vk.com/) [`OAuth Github`](https://developer.github.com/) [`OAuth Google`](https://developers.google.com/identity/protocols/oauth2)
 
+
 6. Start sever:
 ```
 $ bin/dev
+```
+
+We launch the web-server built into Resque, where you can monitor what tasks are being performed. In a separate console tab:
+
+7. Start web-server Resque:
+```
+
+$ bundle exec resque-web
+или `http://localhost:3000/jobs`
+```
+
+Then, in the console, in a separate tab, we launch the queue (more precisely, the worker) with the QUEUE parameter. (event* - will process all queued tasks whose name starts with "event"):
+
+8. Start a worker:
+```
+$ QUEUE=event* bundle exec rake environment resque:work
+```
+
+The scheduler's rake task is responsible for both queuing items from the schedule and polling the deferred queue for items that are ready to be placed on work queues. In a separate terminal tab, run the command:
+
+9. Start a scheduler:
+```
+$ bundle exec rake resque:scheduler
+```
+
+10. In another tab, we will look at the logs:
+```
+$ tail -f log/development_resque.log
+```
+
+```
+"ctrl-C" - turn off the worker
+```
+```
+"$ bundle exec resque-web -K" - extinguish the Resque web server
 ```
 
 ### Сommands to run test:
