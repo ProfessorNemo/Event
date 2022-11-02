@@ -4,7 +4,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable,
+         :omniauthable, omniauth_providers: %i[google_oauth2 vkontakte github]
   # Юзер может создавать много событий
 
   # У юзера должно быть имя не длиннее 35 букв
@@ -13,6 +14,9 @@ class User < ApplicationRecord
   # Юзер может создавать много событий и комментариев
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :identities, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
+  has_many :photos, dependent: :destroy
 
   # без обращения к DNS-почтовым серверам для проверки существования доменного
   # проверяем корректность вводимых емэйлов
@@ -29,6 +33,47 @@ class User < ApplicationRecord
   after_commit :link_subscriptions, on: :create
 
   mount_uploader :avatar, AvatarUploader
+
+  class << self
+    def find_for_oauth(provider, access_token)
+      find_or_create_user(access_token, provider)
+    end
+
+    private
+
+    def find_or_create_user(access_token, provider)
+      email = access_token.info.email
+      return if email.blank?
+
+      name =
+        case provider
+        when :github then access_token.info.nickname
+        else access_token.info.first_name
+        end
+
+      avatarka =
+        case provider
+        when :vkontakte then access_token.extra.raw_info.photo
+        else access_token.info.image
+        end
+
+      user = find_by(email: email) || create_oauth_user(access_token, name, avatarka)
+
+      provider = access_token.provider
+      uid = access_token.uid
+
+      Identity.find_or_create_by(provider: provider, uid: uid, user: user).user
+    end
+
+    def create_oauth_user(access_token, name, avatarka)
+      create(
+        name: name.first(14),
+        email: access_token.info.email,
+        password: "#{Devise.friendly_token.first(16)}!".chars.shuffle.join,
+        avatar: avatarka
+      )
+    end
+  end
 
   # Переопределенный метод одного из родительских классов Devise
   # Отличается от родителького только тем, что использует .deliver_later

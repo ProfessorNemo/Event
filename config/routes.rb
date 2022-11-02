@@ -3,11 +3,13 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
   # например localhost/ru/questions, localhost/en/questions, localhost/questions
   # locale: /#{I18n.available_locales.join("|")}/ - проверка, что запрошенная локаль входит
   # в массив %i[en ru], а ("|") - "или" (локаль или такая, или такая.....)
   scope '(:locale)', locale: /#{I18n.available_locales.join("|")}/ do
-    devise_for :users
+    devise_for :users, skip: :omniauth_callbacks
 
     authenticate :user do
       mount Resque::Server.new, at: '/jobs'

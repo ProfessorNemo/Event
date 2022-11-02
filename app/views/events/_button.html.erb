@@ -1,22 +1,38 @@
 <head>
   <script src="https://api-maps.yandex.ru/2.1/?apikey=<%= Rails.application.credentials.dig(:maps, :api_key) %>&lang=ru_RU" type="text/javascript"></script>
-  <%= javascript_pack_tag 'map' %>
-</head>
+  <script>
+    ymaps.ready(() => {
+      const address = document.getElementById('map').getAttribute('data-address');
 
-</p>
-  <button class="btn btn-warning active btn-sm fs-5" type="button" style="width: 180px; height: 35px;" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-    <%= t('text.show_on_map') %>
-  </button>
-</p>
+      const myMap = new ymaps.Map("map", {
+        center: [
+          55.76, 37.64
+        ],
+        zoom: 10
+      });
 
-<div class="collapse" id="collapseExample">
-  <div class="card card-body">
-    <div class="modal-dialog modal-l">
-			<div class="modal-content">
-				<div class="modal-header">
-					<div id="map" data-address="<%= @event.address %>" style="width: 600px; height: 350px"></div>
-				</div>
-			</div>
+      const myGeocoder = ymaps.geocode(address);
+
+      myGeocoder.then(function (res) {
+        const coordinates = res.geoObjects.get(0).geometry.getCoordinates();
+
+        myMap.geoObjects.add(new ymaps.Placemark(coordinates, {
+          iconContent: address
+        }, {preset: 'islands#blueStretchyIcon'}));
+
+        myMap.setCenter(coordinates);
+        myMap.setZoom(15);
+      }, function (err) {
+        alert('Ошибка при определении местоположения');
+      });
+    });
+  </script>
+</head></p><button class="btn btn-warning active btn-sm fs-5" type="button" style="width: 180px; height: 35px;" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+<%= t('text.show_on_map') %></button></p><div class="collapse" id="collapseExample"><div class="card card-body">
+<div class="modal-dialog modal-l">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div id="map" data-address="<%= @event.address %>" style="width: 600px; height: 350px"></div>
     </div>
   </div>
-</div>
+</div></div></div>

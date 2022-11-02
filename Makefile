@@ -20,9 +20,6 @@ rubocop:
 web:
 	ruby bin/rails server -p 3000
 
-webpacker:
-	./bin/webpack-dev-server
-
 run-console:
 	bundle exec rails console
 

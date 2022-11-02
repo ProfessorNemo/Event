@@ -6,7 +6,7 @@
 class UsersController < ApplicationController
   # Встроенный в девайз фильтр — посылает незалогиненного пользователя
   before_action :authenticate_user!, except: [:show]
-  before_action :set_user!
+  before_action :set_user!, except: [:edit]
 
   # Задаем объект @user (текущий юзер) для шаблонов и экшенов
   before_action :set_current_user, except: [:show]
@@ -16,7 +16,9 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    @providers = User.find(params[:id]).identities.map(&:provider)
+  end
 
   def update
     if @user.update(user_params)
@@ -29,7 +31,12 @@ class UsersController < ApplicationController
   private
 
   def set_user!
-    @user = User.find params[:id]
+    if params[:id] == 'sign_out'
+      sign_out current_user
+      redirect_to root_path
+    else
+      @user = User.find params[:id]
+    end
   end
 
   def set_current_user
