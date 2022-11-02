@@ -98,7 +98,6 @@ We launch the web-server built into Resque, where you can monitor what tasks are
 
 7. Start web-server Resque:
 ```
-
 $ bundle exec resque-web
 или `http://localhost:3000/jobs`
 ```
