@@ -99,7 +99,7 @@ We launch the web-server built into Resque, where you can monitor what tasks are
 7. Start web-server Resque:
 ```
 $ bundle exec resque-web
-или `http://localhost:3000/jobs`
+или http://localhost:3000/jobs
 ```
 
 Then, in the console, in a separate tab, we launch the queue (more precisely, the worker) with the QUEUE parameter. (event* - will process all queued tasks whose name starts with "event"):
