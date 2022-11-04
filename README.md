@@ -2,7 +2,28 @@
 
 ###### Ruby: `3.0.3` Rails: `6.1.6` Yarn: `3.2.4` Nodejs: `12.22.9` Node: `17.1.0` Language: `Russian/English`
 ###### Application screenshots are located in the "screenshots" directory
-![Снимок экрана от 2022-10-30 03-27-30](https://user-images.githubusercontent.com/102049907/200068555-c5f5a401-3ad4-44fb-ace8-10cc3139a432.png)
+![Снимок экрана от 2022-11-04 23-18-04](https://user-images.githubusercontent.com/102049907/200075558-3879ba17-b481-4054-87dc-8f24a7252c97.png)
+![Снимок экрана от 2022-11-04 23-16-56](https://user-images.githubusercontent.com/102049907/200075570-11d9dca1-43c9-4c67-8470-37fec868cedd.png)
+![Снимок экрана от 2022-11-04 23-00-29](https://user-images.githubusercontent.com/102049907/200075573-80743a18-d97f-4fd4-9f12-ab823a5b8bc9.png)
+![Снимок экрана от 2022-11-02 04-21-49](https://user-images.githubusercontent.com/102049907/200075582-d45691e3-319f-4b2c-8fb7-e05059d5c1b5.png)
+![Снимок экрана от 2022-11-02 04-11-47](https://user-images.githubusercontent.com/102049907/200075589-b02f0129-9fef-4f47-8d3a-6fcbf3c00076.png)
+![Снимок экрана от 2022-11-02 04-06-18](https://user-images.githubusercontent.com/102049907/200075593-e770ea5d-78bf-4230-99c8-0a97e9d7d13e.png)
+![Снимок экрана от 2022-11-02 04-05-12](https://user-images.githubusercontent.com/102049907/200075596-027f53e6-d8b1-4d57-810d-808062ad740a.png)
+![Снимок экрана от 2022-11-02 04-04-58](https://user-images.githubusercontent.com/102049907/200075598-dfac56b6-7f11-47a2-8605-50e2eebeb19e.png)
+![Снимок экрана от 2022-11-02 04-04-14](https://user-images.githubusercontent.com/102049907/200075601-68787364-a57b-47bb-97c1-35aa6dfa2944.png)
+![Снимок экрана от 2022-11-02 04-04-07](https://user-images.githubusercontent.com/102049907/200075608-3ccd4c77-6a61-44af-af09-5d6a239828fd.png)
+![Снимок экрана от 2022-11-02 04-03-59](https://user-images.githubusercontent.com/102049907/200075614-1cfadb1c-9e19-4774-97e7-86e14fbe3c10.png)
+![Снимок экрана от 2022-11-02 04-03-54](https://user-images.githubusercontent.com/102049907/200075617-6c6f571f-5f95-435d-a1b8-8f7cfe65a18e.png)
+![Снимок экрана от 2022-11-02 04-03-42](https://user-images.githubusercontent.com/102049907/200075622-37b57e2f-d85b-485a-ab48-2fa143373591.png)
+![Снимок экрана от 2022-11-02 04-03-32](https://user-images.githubusercontent.com/102049907/200075628-c0b84c8a-48f8-4697-abc2-264f62488f12.png)
+![Снимок экрана от 2022-11-02 04-03-20](https://user-images.githubusercontent.com/102049907/200075649-f6e8916e-2f28-4908-b257-4ad391dafeb4.png)
+![Снимок экрана от 2022-11-02 04-02-29](https://user-images.githubusercontent.com/102049907/200075661-117189e5-c0d7-4128-aa9e-70899acbf976.png)
+![Снимок экрана от 2022-11-02 03-24-49](https://user-images.githubusercontent.com/102049907/200075667-281462e9-e6aa-4162-aa41-83a5948863a3.png)
+![Снимок экрана от 2022-10-30 03-27-55](https://user-images.githubusercontent.com/102049907/200075668-f754b6f4-c551-4015-bd7b-076fa5727a3d.png)
+![Снимок экрана от 2022-10-30 03-27-30](https://user-images.githubusercontent.com/102049907/200075672-278e615d-3e44-47c3-9bad-96328664e2b1.png)
+![Снимок экрана от 2022-10-30 03-27-15](https://user-images.githubusercontent.com/102049907/200075679-1f0e8ccd-5167-42e7-8270-a032dcd471fe.png)
+![Снимок экрана от 2022-10-30 02-31-20](https://user-images.githubusercontent.com/102049907/200075701-5bade681-755e-4618-a4a2-a1f5b6719e1a.png)
+![Снимок экрана от 2022-10-30 02-30-42](https://user-images.githubusercontent.com/102049907/200075705-20ac3a48-1f5c-42b4-9cca-237979e86925.png)
 
 
 An application where you can create events and meetings, subscribe to them, add photos, comments, mark a place on the map and receive email notifications.
