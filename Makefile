@@ -1,7 +1,12 @@
 RUN_ARGS := $(wordlist 2, $(words $(MAKECMDGOALS)), $(MAKECMDGOALS))
 
-db!:
-	rails db:drop	db:create	db:migrate	db:fixtures:load
+drop!:
+	rails db:drop
+
+initially:
+	rails db:create
+	rails db:migrate
+
 migration:
 	bundle exec rails g migration $(RUN_ARGS)
 
@@ -25,4 +30,4 @@ run-console:
 
 c: run-console
 
-.PHONY:	db	test
+.PHONY:	db

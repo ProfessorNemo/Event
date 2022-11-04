@@ -50,8 +50,7 @@ $ yarn install
 
 4. Create database and run migrations
 ```
-$ rails db:create
-$ rails db:migrate
+$ rails db:create db:migrate
 ```
 
 5. Generate `master.key` and credentials file

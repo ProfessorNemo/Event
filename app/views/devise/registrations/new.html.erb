@@ -24,7 +24,7 @@
 
       <div class="field form-group mb-2">
         <%= f.label :password, class: 'form-label' %>
-        <%= f.password_field :password, class: 'form-control shadow-sm' %>
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control password' %>
         <% if @minimum_password_length %>
           <em><%= t('text.password_length') %></em>
         <% end %>
@@ -32,7 +32,12 @@
 
        <div class="field form-group mb-2">
         <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation, class: 'form-control shadow-sm' %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control password' %>
+      </div>
+
+      <div class="field form-group mb-2">
+        <input type="checkbox" class="eye_icon">
+             <%= t('text.show_password') %>
       </div>
 
       <div class="field form-group mb-2">
@@ -44,3 +49,13 @@
       </div>
     <% end %>
   </div>
+
+<script>
+  $(".eye_icon").on('click', function () {
+    if ($(".password").attr('type') === 'password') {
+      $(".password").attr('type', 'text');
+    } else {
+      $(".password").attr('type', 'password');
+    }
+  });
+</script>

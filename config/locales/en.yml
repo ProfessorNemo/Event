@@ -192,6 +192,7 @@ en:
     pincode: Pin
     privacy_policy: Privacy policy
     show_on_map: To show on the map
+    show_password: Show password
     to_main: Home
     waiting_confirmation: 'Currently waiting for confirmation for: %{email}'
 

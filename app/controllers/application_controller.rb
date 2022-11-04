@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
 
   include Internationalization
-  # include ErrorHandling
+  include ErrorHandling
   include ActionView::RecordIdentifier
   include Authorization
 

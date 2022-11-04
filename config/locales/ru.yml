@@ -192,6 +192,7 @@ ru:
     pincode: Пин-код
     privacy_policy: Политика конфиденциальности
     show_on_map: Показать на карте
+    show_password: Показать пароль
     to_main: На главную
     waiting_confirmation: 'В настоящее время ожидает подтверждения для: %{email}'
 

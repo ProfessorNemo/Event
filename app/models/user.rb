@@ -9,7 +9,7 @@ class User < ApplicationRecord
   # Юзер может создавать много событий
 
   # У юзера должно быть имя не длиннее 35 букв
-  validates :name, presence: true, length: { maximum: 35 }
+  validates :name, presence: true, length: { maximum: 15 }, allow_blank: true
 
   # Юзер может создавать много событий и комментариев
   has_many :events, dependent: :destroy
@@ -23,7 +23,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
 
   # При создании нового юзера (create), перед валидацией объекта выполнить
-  # метод set_name (devise ни знает ничего о поле "name" потому что, которое
+  # метод set_name (потому что devise ни знает ничего о поле "name", которое
   # у нас presence: true)
   before_validation :set_name, on: :create
 
@@ -87,7 +87,7 @@ class User < ApplicationRecord
 
   # Задаем юзеру случайное имя, если оно пустое
   def set_name
-    self.name = "nemo №#{rand(777)}" if name.blank?
+    self.name = "stranger №#{rand(777)}" if name.blank?
   end
 
   # проверка для сложности пароля
