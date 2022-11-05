@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
 
     if @new_comment.save
       # уведомляем всех подписчиков о новом комментарии
-      EventEmailNotificationJob.perform_later(@new_comment)
+      EventEmailNotificationJob.perform_later(@new_comment) unless @event.notifications == false
 
       # если сохранился успешно, редирект на страницу самого события
       redirect_to @event, notice: t('controllers.comments.created')

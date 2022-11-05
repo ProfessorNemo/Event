@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
     @new_subscription.user = current_user
 
     if @new_subscription.save
-      MailSentAboutSubscriberJob.perform_later(@new_subscription)
+      notify_subscribers(@new_subscription)
 
       redirect_to @event, notice: t('controllers.subscriptions.created')
     else
@@ -51,5 +51,11 @@ class SubscriptionsController < ApplicationController
     # юзер подписывается на события, нет смысла передавать форму, не user_name,
     # не user_email, поэтому params[:subscription] - будет пустым
     params.fetch(:subscription, {}).permit(:user_email, :user_name)
+  end
+
+  def notify_subscribers(subscription)
+    return if @event.notifications == false
+
+    MailSentAboutSubscriberJob.deliver_later(subscription)
   end
 end
