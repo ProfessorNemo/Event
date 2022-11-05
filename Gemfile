@@ -16,6 +16,8 @@ gem 'devise', '~> 4.8'
 # для проверки корректности введенного email
 gem 'valid_email2', '~> 4.0'
 
+gem 'image_processing', '~> 1.2'
+
 # Гем, интегрирующий bootstrap
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails'

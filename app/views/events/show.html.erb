@@ -9,6 +9,15 @@
       <div class="row event-banner">
         <div class="col-md-8 px-4 py-3">
           <div class="event-description">
+            <div class="row">
+              <div class="col">
+                <% if @event.snapshot.attached? %>
+                  <div class="carousel-item active">
+                    <%= image_tag @event.snapshot.variant(resize_to_fit: [900, 900]), class: 'img-fluid img-thumbnail' %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
             <%= content_tag(:h1, @event.title, class: 'text-center fw-light') %>
             <%= content_tag(:h3, l(@event.datetime, format: :long), class: 'fw-lighter') %>
             <%= content_tag(:h3, link_to(@event.address, "https://yandex.ru/maps/?text=#{@event.address}"),

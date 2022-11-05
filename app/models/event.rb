@@ -4,6 +4,8 @@ class Event < ApplicationRecord
   # Событие принадлежит юзеру
   belongs_to :user
 
+  has_one_attached :snapshot
+
   has_many :photos, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :subscriptions, dependent: :destroy

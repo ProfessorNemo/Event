@@ -27,13 +27,17 @@
     <% else %>
       <%= f.check_box :notifications, class: 'form-check-input shadow-sm' %>
     <% end %>
-
     <%= f.label t('.email_notifications'), class: 'form-check-label' %>
   </div>
 
-  <div class="form-group col-md-4 mb-3 ">
+  <div class="form-group col-md-4 mt-2 mb-3 ">
     <%= f.label :pincode, class: 'fs-5' %>
     <%= f.text_field :pincode, class: 'form-control shadow-sm' %>
+  </div>
+
+  <div class="form-group col-md-8 mb-4">
+    <%= f.label :snapshot %>
+    <%= f.file_field :snapshot, class: 'btn btn-lg btn-secondary active' %>
   </div>
 
   <div class="actions">

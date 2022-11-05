@@ -345,7 +345,7 @@ GEM
     rubyzip (2.3.2)
     rufus-scheduler (3.8.2)
       fugit (~> 1.1, >= 1.1.6)
-    selenium-webdriver (4.6.0)
+    selenium-webdriver (4.6.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -419,6 +419,7 @@ DEPENDENCIES
   devise (~> 4.8)
   devise-i18n
   factory_bot_rails
+  image_processing (~> 1.2)
   jquery-rails
   jsbundling-rails (~> 1.0)
   letter_opener
