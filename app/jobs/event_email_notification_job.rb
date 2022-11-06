@@ -27,9 +27,9 @@ class EventEmailNotificationJob < ApplicationJob
   private
 
   def message(*args)
-    EventMailer.photo(*args).deliver_later and return if args[1].is_a?(Photo)
+    EventMailer.photo(*args).deliver_now and return if args[1].is_a?(Photo)
 
-    EventMailer.comment(*args).deliver_later
+    EventMailer.comment(*args).deliver_now
   end
 
   def departure(*args, &block)
