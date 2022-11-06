@@ -2,7 +2,7 @@
 
 ###### Ruby: `3.0.3` Rails: `6.1.6` Yarn: `3.2.4` Nodejs: `12.22.9` Node: `17.1.0` Language: `Russian/English`
 ###### Application screenshots are located in the "screenshots" directory
-![Снимок экрана от 2022-10-30 03-27-30](https://user-images.githubusercontent.com/102049907/200075888-d5acf8d5-e52f-46d5-ba83-d4546fa1311c.png)
+![Снимок экрана от 2022-11-06 04-07-20](https://user-images.githubusercontent.com/102049907/200150406-69e460b9-6317-4b1a-b796-cee2607684f9.png)
 
 
 An application where you can create events and meetings, subscribe to them, add photos, comments, mark a place on the map and receive email notifications.
