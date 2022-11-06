@@ -13,6 +13,8 @@ The venue is displayed in Yandex.Maps.
 
 `Esbuild` is used as stack for assets.
 
+Also added the functionality of uploading photos to the application via `ActiveStorage` + `Yandex Cloud Storage`
+
 ### Gems used:
 
 - [`devise`](https://github.com/heartcombo/devise) to work with users
@@ -21,11 +23,14 @@ The venue is displayed in Yandex.Maps.
 - [`carrierwave`](https://github.com/carrierwaveuploader/carrierwave) to upload images
 - [`rmagick`](https://github.com/rmagick/rmagick) for image processing
 - [`mailjet`](https://github.com/mailjet/mailjet-gem) for email notifications
-- [`letter_opener`](https://github.com/ryanb/letter_opener) to send emails in the development.
+- [`letter_opener`](https://github.com/ryanb/letter_opener) to send emails in the development
 - [`rspec-rails`](https://github.com/rspec/rspec-rails) for tests
 - [`factory_bot_rails`](https://github.com/thoughtbot/factory_bot_rails)
 - [`resque`](https://github.com/resque/resque) for background jobs
-- [`resque-scheduler`](https://github.com/resque/resque-scheduler) this is an extension to Resque that adds support for queueing items in the future
+- [`resque-scheduler`](https://github.com/resque/resque-scheduler) this is an extension to Resque that adds
+support for queueing items in the future
+- [`image_processing`](https://github.com/janko/image_processing) provides higher-level image processing helpers that are commonly needed when handling image uploads
+- [`aws-sdk-s3`](https://github.com/aws/aws-sdk-ruby) official AWS SDK for Ruby
 - [`omniauth-rails_csrf_protection`](https://github.com/cookpad/omniauth-rails_csrf_protection) for OAuth authentication
   - [`omniauth-google-oauth2`](https://github.com/zquestz/omniauth-google-oauth2)
   - [`omniauth-github`](https://github.com/omniauth/omniauth-github)
@@ -81,6 +86,9 @@ oauth:
   github_secret_key: <value>
   client_id: <value>
   client_secret: <value>
+yc:
+  access_key_id: <value>
+  secret_access_key: <value>
 ```
 
 `:mail` — [`Mailjet`](https://www.mailjet.com/)
@@ -89,6 +97,7 @@ oauth:
 
 `:oauth` — [`OAuth VK`](https://dev.vk.com/) [`OAuth Github`](https://developer.github.com/) [`OAuth Google`](https://developers.google.com/identity/protocols/oauth2)
 
+`:yc` — [`Yandex.Cloud`](https://cloud.yandex.ru/docs/storage/s3/)
 
 
 6. Start sever:

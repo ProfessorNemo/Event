@@ -119,6 +119,7 @@ en:
       no_comments_yet: There are no comments yet.
       no_photo_yet: There are no photos yet.
       only_authorized_users: Only registered users can add photos.
+    add_snapshot: Event Avatar
 
   event_mailer:
     comment:

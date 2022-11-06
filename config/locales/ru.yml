@@ -119,6 +119,7 @@ ru:
       no_comments_yet: Комментариев пока нет.
       no_photo_yet: Фотографий пока нет.
       only_authorized_users: Добавлять фото могут только зарегистрированные пользователи.
+    add_snapshot: Аватар события
 
   event_mailer:
     comment:
