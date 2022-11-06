@@ -6,6 +6,6 @@ class MailSentAboutSubscriberJob < ApplicationJob
   def perform(subscription)
     event = subscription.event
 
-    EventMailer.subscription(event, subscription).deliver_later
+    EventMailer.subscription(event, subscription).deliver_now
   end
 end
