@@ -113,20 +113,6 @@ $ bundle exec resque-web
 или - (http://localhost:3000/jobs)
 ```
 
-Then, in the console, in a separate tab, we launch the queue (more precisely, the worker) with the QUEUE parameter. (event* - will process all queued tasks whose name starts with "event"):
-
-8. Start a worker:
-```
-$ QUEUE=event* bundle exec rake environment resque:work
-```
-
-The scheduler's rake task is responsible for both queuing items from the schedule and polling the deferred queue for items that are ready to be placed on work queues. In a separate terminal tab, run the command:
-
-9. Start a scheduler:
-```
-$ bundle exec rake resque:scheduler
-```
-
 10. In another tab, we will look at the logs:
 ```
 $ tail -f log/development_resque.log

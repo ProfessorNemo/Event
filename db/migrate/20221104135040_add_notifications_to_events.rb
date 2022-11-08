@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddNotificationsToEvents < ActiveRecord::Migration[6.1]
   def change
     add_column :events, :notifications, :boolean, default: false

@@ -33,6 +33,8 @@ Rails/I18nLocaleTexts:
 SkipsModelValidations:
   Enabled: false
 
+Style/StringConcatenation:
+  Enabled: false
 # Rails/FilePath:
 #   EnforcedStyle: arguments
 
