@@ -7,13 +7,13 @@ namespace :resque do
   task setup: :environment do
     require 'resque'
 
-    Resque.redis = 'localhost:6379'
+    resque_config = YAML.load_file Rails.root.join('config/resque.yml')
+
+    Resque.redis = resque_config['development']
   end
 
   task setup_schedule: :setup do
     require 'resque-scheduler'
-
-    # Resque.schedule = YAML.load_file Rails.root.join('config/resque_schedule.yml')
 
     Resque::Scheduler.dynamic = true
   end
@@ -21,5 +21,5 @@ namespace :resque do
   task scheduler: :setup_schedule
 end
 
-
+Resque.after_fork = proc { ActiveRecord::Base.establish_connection }
 

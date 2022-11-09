@@ -56,6 +56,6 @@ class SubscriptionsController < ApplicationController
   def notify_subscribers(subscription)
     return if @event.notifications == false
 
-    MailSentAboutSubscriberJob.deliver_later(subscription)
+    MailSentAboutSubscriberJob.perform_later(subscription)
   end
 end

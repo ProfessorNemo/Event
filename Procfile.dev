@@ -1,7 +1,7 @@
 web: ruby bin/rails server -p 3000
 css: yarn build:css:dev --watch
 js: yarn build --watch
-worker: bundle exec rake environment resque:work QUEUE=event*
+worker: QUEUE=event* bundle exec rake environment resque:work
 scheduler: bundle exec rake resque:scheduler
 
 

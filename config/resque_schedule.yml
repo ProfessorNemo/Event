@@ -1,4 +1,0 @@
-event:
-  cron: '*/5 * * * *'
-  class: EventEmailNotificationJob
-  description: 'event update'
