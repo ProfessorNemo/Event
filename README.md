@@ -50,17 +50,12 @@ $ cd bbq
 $ bundle update
 ```
 
-3. Install and update all dependencies in "package.json" file
+3. Create database and run migrations + install all dependencies in "package.json" file
 ```
-$ yarn install
-```
-
-4. Create database and run migrations
-```
-$ rails db:create db:migrate
+$ make initially
 ```
 
-5. Generate `master.key` and credentials file
+4. Generate `master.key` and credentials file
 ```
 $ EDITOR=nano rails credentials:edit
 ```
@@ -100,22 +95,17 @@ yc:
 `:yc` — [`Yandex.Cloud`](https://cloud.yandex.ru/docs/storage/s3/)
 
 
-6. Start sever:
+5. Start sever:
 ```
 $ bin/dev
 ```
 
 We launch the web-server built into Resque, where you can monitor what tasks are being performed. In a separate console tab:
 
-7. Start web-server Resque:
+6. Start web-server Resque:
 ```
 $ bundle exec resque-web
 или - (http://localhost:3000/jobs)
-```
-
-10. In another tab, we will look at the logs:
-```
-$ tail -f log/development_resque.log
 ```
 
 ```
