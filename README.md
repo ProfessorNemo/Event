@@ -116,6 +116,14 @@ $ bundle exec resque-web
 ```
 
 ### Сommands to run test:
+
+Before running the tests in the console, type the following commands:
+```
+$ rails db:environment:set RAILS_ENV=test
+$ rake db:schema:load RAILS_ENV=test
+```
+after
+
 ```
 $ bundle exec rspec spec/models/users_spec.rb
 ```
