@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# (с) goodprogrammer.ru
-#
 # Контроллер, управляющий событиями
 class EventsController < ApplicationController
   protect_from_forgery except: :show
