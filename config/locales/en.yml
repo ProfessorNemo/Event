@@ -41,7 +41,7 @@ en:
               subscription_error: You can't subscribe to your event
 
   app:
-    company: Good programmer
+    company: Professor Moriarty
     creator: 'Project author:'
     name: Event
 
