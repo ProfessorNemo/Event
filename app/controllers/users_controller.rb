@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# (с) goodprogrammer.ru
-#
 # Контроллер, управляющий пользователями
 class UsersController < ApplicationController
   # Встроенный в девайз фильтр — посылает незалогиненного пользователя
