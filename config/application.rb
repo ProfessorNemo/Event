@@ -29,6 +29,9 @@ module Bbq
     # локаль по умолчанию
     config.i18n.default_locale = :ru
 
+    config.enable_dependency_loading = true
+    config.paths.add Rails.root.join('lib').to_s, eager_load: true
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

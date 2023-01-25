@@ -3,6 +3,8 @@
 require 'resque/server'
 
 Rails.application.routes.draw do
+  mount API::Base => '/'
+
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   # например localhost/ru/questions, localhost/en/questions, localhost/questions

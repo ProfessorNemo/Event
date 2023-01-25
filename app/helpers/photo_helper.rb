@@ -10,6 +10,7 @@ module PhotoHelper
   # метод, который выводит миниатюрную версию аватарки:
   def user_avatar_thumb(user)
     if user&.avatar&.file.present?
+
       user.avatar.thumb.url
       image_tag(user.avatar.thumb.url, class: 'img-icon', title: user.name)
     else

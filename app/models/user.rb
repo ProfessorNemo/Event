@@ -57,12 +57,12 @@ class User < ApplicationRecord
         else access_token.info.image
         end
 
-      user = find_by(email: email) || create_oauth_user(access_token, name, avatarka)
+      user = find_by(email:) || create_oauth_user(access_token, name, avatarka)
 
       provider = access_token.provider
       uid = access_token.uid
 
-      Identity.find_or_create_by(provider: provider, uid: uid, user: user).user
+      Identity.find_or_create_by(provider:, uid:, user:).user
     end
 
     def create_oauth_user(access_token, name, avatarka)

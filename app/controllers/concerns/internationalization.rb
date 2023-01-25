@@ -12,12 +12,12 @@ module Internationalization
 
     # &action - действие контроллера, которое будет выполняться в контексте запрошенной локали (locale)
     # коммутатор
-    def switch_locale(&action)
+    def switch_locale(&)
       # откуда берётся локаль, но если ее там нет - то берется по умолчанию
       locale = locale_from_url || locale_from_headers || I18n.default_locale
       # Content-Language - заголовок ответа
       response.set_header 'Content-Language', locale
-      I18n.with_locale locale, &action
+      I18n.with_locale(locale, &)
     end
 
     # Adapted from https://github.com/rack/rack-contrib/blob/master/lib/rack/contrib/locale.rb

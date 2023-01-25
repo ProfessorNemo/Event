@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.1.2'
 
 gem 'aws-sdk-s3'
 gem 'pg', '~> 1.1'
@@ -74,3 +74,8 @@ gem 'resque-scheduler', '~> 4.7'
 gem 'cssbundling-rails', '~> 1.0'
 gem 'jsbundling-rails', '~> 1.0'
 gem 'sprockets-rails', '~> 3.4'
+
+gem 'grape', '~> 1.7'
+
+gem 'grape_on_rails_routes', '~> 0.3.2'
+
