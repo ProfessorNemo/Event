@@ -15,7 +15,7 @@ module API
           value: 0,
           expires: Time.zone.now.tomorrow,
           domain: 'localhost:3000',
-          path: "/#{prefix.to_s}/#{version}/"
+          path: "/api/#{version}/"
         }
         cookies[:status_count][:value] += 1
         { status_count: cookies[:status_count] }
