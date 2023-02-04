@@ -6,7 +6,7 @@ Rails.application.configure do
   config.active_job.queue_adapter = :resque
   # название очереди
   config.active_job.queue_name_prefix = "event_#{Rails.env}"
-  # Settings specified here will take precedence over those in config/application.rb.
+  # Settings specified here will take precedence over those in config/applicationdered.rb.
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development

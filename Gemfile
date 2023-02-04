@@ -76,6 +76,9 @@ gem 'jsbundling-rails', '~> 1.0'
 gem 'sprockets-rails', '~> 3.4'
 
 gem 'grape', '~> 1.7'
-
 gem 'grape_on_rails_routes', '~> 0.3.2'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
 
+gem 'rack-cors'
+gem 'warden', '~> 1.2'

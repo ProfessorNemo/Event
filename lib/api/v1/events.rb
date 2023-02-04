@@ -5,21 +5,22 @@ module API
     class Events < ::API::Base
       helpers API::V1::Helpers::AuthenticationHelpers
 
-      version 'v1', using: :path
-      format :json
-      content_type :json, 'application/json; charset=utf-8'
-      prefix :api
-
       before do
-        error!('Access Denied', unauthorized) unless current_user
+        error!('Unauthorized. Invalid token.', 401) unless authenticated
       end
 
       get 'info' do
-        user_info(current_user)
+        user_info
       end
 
       resource :events do
-        desc 'Return list of events'
+        desc 'Return list of events' do
+          detail 'View all users and their events'
+        end
+
+        before do
+          header['Access-Control-Request-Method'] = 'GET'
+        end
 
         get do
           events = Event.joins(:user)
@@ -36,6 +37,10 @@ module API
       end
 
       namespace :user do
+        before do
+          header['Access-Control-Request-Method'] = 'POST'
+        end
+
         params do
           requires :title, type: String
           optional :description, type: String, allow_blank: true
@@ -61,6 +66,10 @@ module API
         end
 
         resource :event do
+          before do
+            header['Access-Control-Request-Method'] = 'PUT'
+          end
+
           desc 'Update a specific event'
           route_param :id, type: Integer do
             put do
@@ -78,10 +87,14 @@ module API
         end
 
         resource :event do
+          before do
+            header['Access-Control-Request-Method'] = 'DELETE'
+          end
+
           desc 'Delete a specific event'
           route_param :id, type: Integer do
             delete do
-              id_event = Event.order(created_at: :desc).first.id
+              id_event = Event.find_by(id: params[:id]).id
 
               error! :not_found, 404 unless params['id'] == id_event
 
@@ -95,6 +108,10 @@ module API
       end
 
       resource :events do
+        before do
+          header['Access-Control-Request-Method'] = 'GET'
+        end
+
         desc 'Return a specific event'
         route_param :id, type: Integer do
           get do

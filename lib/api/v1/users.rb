@@ -5,10 +5,9 @@ module API
     class Users < ::API::Base
       helpers API::V1::Helpers::AuthenticationHelpers
 
-      version 'v1', using: :path
-      format :json
-      content_type :json, 'application/json; charset=utf-8'
-      prefix :api
+      before do
+        error!('Unauthorized. Invalid token.', 401) unless authenticated
+      end
 
       get 'status_count' do
         cookies[:status_count] ||= {

@@ -29,10 +29,15 @@ class User < ApplicationRecord
 
   validate :password_complexity
 
+  before_save :ensure_authentication_token
   # Если юзер уже подписывался, но хочет залогиниться, пройдя все валидации
   after_commit :link_subscriptions, on: :create
 
   mount_uploader :avatar, AvatarUploader
+
+  def ensure_authentication_token
+    self.authentication_token ||= generate_authentication_token
+  end
 
   class << self
     def find_for_oauth(provider, access_token)
@@ -102,5 +107,12 @@ class User < ApplicationRecord
   def link_subscriptions
     Subscription.where(user_id: nil, user_email: email)
                 .update_all(user_id: id)
+  end
+
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
   end
 end

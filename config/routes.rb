@@ -4,6 +4,7 @@ require 'resque/server'
 
 Rails.application.routes.draw do
   mount API::Base => '/'
+  mount GrapeSwaggerRails::Engine, at: '/documentation'
 
   devise_for :users, only: :omniauth_callbacks, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
