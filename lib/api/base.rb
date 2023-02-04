@@ -22,8 +22,7 @@ module API
         description: 'API contains information about users and events',
         contact_name: 'Professor Moriarty',
         contact_email: 'gleboceanborn@gmail.com',
-        contact_url: 'https://github.com/ProfessorNemo',
-        terms_of_service_url: 'www.The-URL-of-the-terms-and-service.com'
+        contact_url: 'https://github.com/ProfessorNemo'
       },
       api_version: 'v1',
       hide_documentation_path: true,
@@ -37,7 +36,7 @@ module API
         api_key: {
           type: 'apiKey',
           name: 'access_token',
-          in: 'header'
+          in: 'params'
         }
       }
     )
