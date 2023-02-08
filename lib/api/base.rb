@@ -7,6 +7,15 @@ module API
     content_type :json, 'application/json; charset=utf-8'
     prefix :api
 
+    # Включение сессии в Grape, при использовании промежуточного ПО
+    # ActionDispatch::Session::CookieStore. (токен авторизации не используется)
+    use ActionDispatch::Session::CookieStore
+    helpers do
+      def session
+        env['rack.session']
+      end
+    end
+
     before do
       header['Access-Control-Allow-Origin'] = '*'
       header['Access-Control-Allow-Methods'] = %w[GET POST PUT DELETE].join(', ')
