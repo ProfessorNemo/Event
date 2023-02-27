@@ -33,7 +33,9 @@ gem 'rails-i18n'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'capybara'
   gem 'factory_bot_rails'
+  gem 'launchy'
   gem 'rspec-rails'
 end
 
@@ -46,7 +48,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.26'
   gem 'rspec', '~> 3.11'
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'webdrivers'
@@ -82,3 +83,5 @@ gem 'grape-swagger-rails'
 
 gem 'rack-cors'
 gem 'warden', '~> 1.2'
+
+gem 'ffaker', '~> 2.21'
